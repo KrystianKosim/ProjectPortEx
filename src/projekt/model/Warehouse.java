@@ -1,6 +1,11 @@
 package projekt.model;
 
+import projekt.model.konteners.KontenerExplosiveMaterials;
 import projekt.model.konteners.KontenerPrimary;
+import projekt.model.konteners.KontenerToxicLiquidMaterials;
+import projekt.model.konteners.KontenerToxicLooseMaterials;
+import projekt.threads.KontenerTimer;
+import projekt.threads.Timer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +43,31 @@ public class Warehouse {
 
     public void addKontenerToWarehouse(KontenerPrimary kontener) {
         if (listOfKonteners.size() < maxKonteners) {
+            if (kontener.getSender().getWarnings() <= 3) {
+                addKontenerAndStartThread(kontener);
+            } else {
+                System.err.println('\n' + "Nie przyjmuje towaru, nadawca ma zbyt duzo ostrzezen!");
+            }
+        } else {
+            System.err.println('\n' + "Magazyn jest pełny!");
+        }
+    }
+
+    private void addKontenerAndStartThread(KontenerPrimary kontener) {
+        if (kontener instanceof KontenerExplosiveMaterials) {
+            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 2, this);
+            Timer.addKontener(kontenerTimer);
+            listOfKonteners.add(kontener);
+        } else if (kontener instanceof KontenerToxicLiquidMaterials) {
+            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 10, this);
+            Timer.addKontener(kontenerTimer);
+            listOfKonteners.add(kontener);
+        } else if (kontener instanceof KontenerToxicLooseMaterials) {
+            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 15, this);
+            Timer.addKontener(kontenerTimer);
             listOfKonteners.add(kontener);
         } else {
-            System.err.println("Magazyn jest pełny!");
+            listOfKonteners.add(kontener);
         }
     }
 
@@ -48,6 +75,10 @@ public class Warehouse {
         for (int i = 0; i < warehouseList.size(); i++) {
             System.out.println(i + " - " + warehouseList.get(i));
         }
+    }
+
+    public List<KontenerPrimary> getListOfKonteners() {
+        return listOfKonteners;
     }
 
     @Override

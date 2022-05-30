@@ -132,36 +132,35 @@ public class Ship {
         } else {
             System.out.println("Brak statkow, czy chcesz utworzyc statek teraz? (yes/no)");
             String decision = new Scanner(System.in).nextLine();
-            if(decision.equals("yes")) {
+            if (decision.equals("yes")) {
                 Ship.createShip();
             }
         }
     }
 
-    public void showKontenersOnShip(){
+    public void showKontenersOnShip() {
         for (int i = 0; i < listOfKonteners.size(); i++) {
             System.out.println(i + " - " + listOfKonteners.get(i));
         }
     }
 
-    public static void whereUnloadKontener(KontenerPrimary kontener){
+    public static void whereUnloadKontener(KontenerPrimary kontener) {
         listOptionsToUnload();
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
-        switch (decisionVariable){
+        switch (decisionVariable) {
             case 0:
                 break;
             case 1:
                 RailwayWagon.addKontenerToWagon(kontener);
                 break;
             case 2:
-
                 Warehouse.chooseWarehouseToAddKontener(kontener);
                 break;
         }
     }
 
-    public static void listOptionsToUnload(){
+    public static void listOptionsToUnload() {
         List<String> listOptions = new LinkedList<>();
         listOptions.add("Wyjdz");
         listOptions.add("Na wagon");
@@ -171,13 +170,13 @@ public class Ship {
         }
     }
 
-    public void unloadKontener(){
-        System.out.println("Wybierz ktory kontener chcesz wyladowac: ");
-        if(!listOfKonteners.isEmpty()) {
+    public void unloadKontener() {
+        if (!listOfKonteners.isEmpty()) {
+            System.out.println("Wybierz ktory kontener chcesz wyladowac: ");
             showKontenersOnShip();
             Scanner scan = new Scanner(System.in);
             int decisionVariable = scan.nextInt();
-            while(!(decisionVariable >= 0 && decisionVariable< listOfKonteners.size())){
+            while (!(decisionVariable >= 0 && decisionVariable < listOfKonteners.size())) {
                 System.err.println("Podano zly numer kontenera, podaj ponownie");
                 showKontenersOnShip();
                 decisionVariable = scan.nextInt();
@@ -186,27 +185,28 @@ public class Ship {
             listOfKonteners.remove(decisionVariable);
             whereUnloadKontener(kontener);
         } else {
-            System.err.println("Brak kontenerow na statku");
+            System.err.println( "Brak kontenerow na statku");
         }
     }
 
-    public static void chooseOperationToDo(Ship ship){
+    public static void chooseOperationToDo() {
+        Ship ship = chooseShip();
         showOperationsToDo();
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
-        switch (decisionVariable){
+        switch (decisionVariable) {
             case 0:
                 break;
             case 1:
-                System.out.println("wyladuj kontener");
+                ship.unloadKontener();
                 break;
             case 2:
-                System.out.println("STatek wyplywa");
+                System.out.println("Statek wyplywa");
                 break;
         }
     }
 
-    public static void showOperationsToDo(){
+    public static void showOperationsToDo() {
         List<String> list = new LinkedList<>();
         list.add("Wyjdz");
         list.add("Wyladuj kontener");
@@ -216,14 +216,14 @@ public class Ship {
         }
     }
 
-    public static Ship chooseShip(){
+    public static Ship chooseShip() {
         Ship shipToReturn;
-        if(!shipList.isEmpty()){
+        if (!shipList.isEmpty()) {
             System.out.println("Na jakim statku chcesz wykonac operacje?");
             showShipList();
             Scanner scan = new Scanner(System.in);
             int decisionVariable = scan.nextInt();
-            while(!(decisionVariable >=0  && decisionVariable < shipList.size())){
+            while (!(decisionVariable >= 0 && decisionVariable < shipList.size())) {
                 System.err.println("Wybrano niewlasciwy statek, wybierz ponownie z listy:");
                 showShipList();
                 decisionVariable = scan.nextInt();
@@ -231,8 +231,7 @@ public class Ship {
             shipToReturn = shipList.get(decisionVariable);
         } else {
             System.out.println("Brak statkow, utworz statek");
-            String decision = new Scanner(System.in).nextLine();
-               shipToReturn = Ship.createShip();
+            shipToReturn = Ship.createShip();
         }
         return shipToReturn;
     }
@@ -320,10 +319,6 @@ public class Ship {
             }
         }
         return count;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override

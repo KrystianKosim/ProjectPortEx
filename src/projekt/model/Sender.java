@@ -155,16 +155,16 @@ public class Sender {
         }
     }
 
-    public int getWarnings() {
-        return warnings;
-    }
-
-    public void setWarnings(int warnings) {
-        this.warnings = warnings;
+    public void addWarning() {
+        warnings++;
     }
 
     public static List<Sender> getSenderList() {
         return senderList;
+    }
+
+    public int getWarnings() {
+        return warnings;
     }
 
     @Override
@@ -175,6 +175,7 @@ public class Sender {
                 ", pesel: " + pesel +
                 ", adres: " + address +
                 ", data urodzenia: " + birthDate +
+                ", ostrzezenia: " + warnings +
                 '}';
     }
 }

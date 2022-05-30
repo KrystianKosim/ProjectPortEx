@@ -45,7 +45,7 @@ public class Main {
                     makeKontener();
                     break;
                 case 3:
-                    Ship.chooseShip();
+                    Ship.chooseOperationToDo();
                     break;
                 case 4:
                     Ship.showShipList();
@@ -127,6 +127,7 @@ public class Main {
         for (int i = 0; i < list.size(); i++) {
             System.out.print(i + " - " + list.get(i) + "  ");
         }
+        System.out.println();
     }
 
 
