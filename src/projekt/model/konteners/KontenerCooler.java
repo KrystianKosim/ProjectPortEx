@@ -26,14 +26,14 @@ public class KontenerCooler extends KontenerHeavy {
         double volume = scanK.nextDouble();
         System.out.println("Podaj moc instalacji elektrycznej");
         double powerOfElectricityInstalation = scanK.nextDouble();
-        return new KontenerCooler(sender, homePort, weightNetto, tara,volume, powerOfElectricityInstalation);
+        return new KontenerCooler(sender, homePort, weightNetto, tara, volume, powerOfElectricityInstalation);
     }
 
     @Override
     public String toString() {
         return "Kontener chlodzacy{" +
                 getSender() +
-                ", port nadania: " + getHomePort()  +
+                ", port nadania: " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +

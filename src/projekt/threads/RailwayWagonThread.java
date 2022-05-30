@@ -1,10 +1,10 @@
 package projekt.threads;
 
-public class RailwayWagonThread extends Thread{
+public class RailwayWagonThread extends Thread {
 
     int time;
 
-    public RailwayWagonThread(int time){
+    public RailwayWagonThread(int time) {
         this.time = time;
     }
 
@@ -12,12 +12,12 @@ public class RailwayWagonThread extends Thread{
     public void run() {
         int i = 1;
         while (i <= time) {
-            try{
+            try {
                 /**
                  * sleep(1000)
                  */
                 sleep(100);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println("Czas " + i++);

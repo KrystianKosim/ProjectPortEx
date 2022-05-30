@@ -33,7 +33,7 @@ public class KontenerToxicLooseMaterials extends KontenerHeavy {
     @Override
     public String toString() {
         return "Kontener na toksyczne materialy sypkie{" +
-                getSender()+
+                getSender() +
                 ", port nadania: " + getHomePort() +
                 ", waga netto:  " + getWeightNetto() +
                 ", tara: " + getTara() +

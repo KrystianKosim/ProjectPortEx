@@ -60,7 +60,6 @@ public class Main {
     }
 
 
-
     private static List<String> listOfAvaibleOperations() {
         List<String> list = new ArrayList<>();
         list.add("Wyjdz");
@@ -129,8 +128,6 @@ public class Main {
         }
         System.out.println();
     }
-
-
 
 
 }

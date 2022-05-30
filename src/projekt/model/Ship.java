@@ -185,7 +185,7 @@ public class Ship {
             listOfKonteners.remove(decisionVariable);
             whereUnloadKontener(kontener);
         } else {
-            System.err.println( "Brak kontenerow na statku");
+            System.err.println("Brak kontenerow na statku");
         }
     }
 

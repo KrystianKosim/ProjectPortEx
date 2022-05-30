@@ -1,7 +1,7 @@
 package projekt.threads;
 
-import projekt.model.konteners.KontenerPrimary;
 import projekt.model.Warehouse;
+import projekt.model.konteners.KontenerPrimary;
 
 import java.time.LocalDate;
 

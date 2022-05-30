@@ -12,7 +12,7 @@ public class KontenerLiquidMaterials extends KontenerPrimary {
         this.maxLitersOfLiquid = maxLitersOfLiquid;
     }
 
-    public static KontenerLiquidMaterials createKontenerLiquid(){
+    public static KontenerLiquidMaterials createKontenerLiquid() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -24,7 +24,7 @@ public class KontenerLiquidMaterials extends KontenerPrimary {
         double tara = scanK.nextDouble();
         System.out.println("Maksymalna pojemnosc w litrach");
         double maxLitersOfLiquid = scanK.nextDouble();
-        return new KontenerLiquidMaterials(sender,homePort,weightNetto,tara,maxLitersOfLiquid);
+        return new KontenerLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
     }
 
     public double getMaxLitersOfLiquid() {

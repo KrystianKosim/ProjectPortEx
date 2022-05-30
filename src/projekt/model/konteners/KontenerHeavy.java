@@ -12,7 +12,7 @@ public class KontenerHeavy extends KontenerPrimary {
         this.volume = volume;
     }
 
-    public static KontenerHeavy createKontenerHeavy(){
+    public static KontenerHeavy createKontenerHeavy() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -24,7 +24,7 @@ public class KontenerHeavy extends KontenerPrimary {
         double tara = scanK.nextDouble();
         System.out.println("Podaj objetosc");
         double volume = scanK.nextDouble();
-        return new KontenerHeavy(sender,homePort,weightNetto,tara,volume);
+        return new KontenerHeavy(sender, homePort, weightNetto, tara, volume);
     }
 
     public double getVolume() {
@@ -35,7 +35,7 @@ public class KontenerHeavy extends KontenerPrimary {
     public String toString() {
         return "Kontener ciezki{" +
                 getSender() +
-                ", port nadania: " + getHomePort()  +
+                ", port nadania: " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +

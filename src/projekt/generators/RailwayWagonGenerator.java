@@ -6,7 +6,7 @@ import projekt.model.konteners.KontenerPrimary;
 import java.util.List;
 
 public class RailwayWagonGenerator {
-    public static void railwayWagnosGenerator(){
+    public static void railwayWagnosGenerator() {
         List<KontenerPrimary> list = KontenerPrimary.getKontenerPrimaryList();
 
         RailwayWagon.addKontenerToWagon(list.get(0));
