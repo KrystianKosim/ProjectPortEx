@@ -4,16 +4,16 @@ import projekt.model.Sender;
 
 import java.util.Scanner;
 
-public class KontenerExplosiveMaterials extends KontenerHeavy {
+public class ContainerExplosiveMaterials extends ContainerHeavy {
     private String certificate;
 
-    public KontenerExplosiveMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                      double volume, String cerficate) {
+    public ContainerExplosiveMaterials(Sender sender, String homePort, double weightNetto, double tara,
+                                       double volume, String cerficate) {
         super(sender, homePort, weightNetto, tara, volume);
         this.certificate = cerficate;
     }
 
-    public static KontenerExplosiveMaterials createKontenerExplosiveMaterials() {
+    public static ContainerExplosiveMaterials createContainerExplosiveMaterials() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -27,20 +27,19 @@ public class KontenerExplosiveMaterials extends KontenerHeavy {
         double volume = scanK.nextDouble();
         System.out.println("Podaj certyfikat bezpieczenstwa");
         String certificate = new Scanner(System.in).nextLine();
-        return new KontenerExplosiveMaterials(sender, homePort, weightNetto, tara, volume, certificate);
+        return new ContainerExplosiveMaterials(sender, homePort, weightNetto, tara, volume, certificate);
     }
 
     @Override
     public String toString() {
-        return "Kontener na materialy wybuchowe{" +
-                getSender() +
+        return "Kontener na materialy wybuchowe{" + getSender() +
                 ", port nadania " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +
                 ", objetosc: " + getVolume() +
                 ", certyfikat: " + certificate +
-                ", ID: " + getKontenerID() +
+                ", ID: " + getContainerID() +
                 '}';
     }
 }

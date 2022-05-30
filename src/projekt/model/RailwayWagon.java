@@ -1,25 +1,25 @@
 package projekt.model;
 
 import projekt.Main;
-import projekt.model.konteners.KontenerPrimary;
+import projekt.model.konteners.ContainerPrimary;
 import projekt.threads.RailwayWagonThread;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RailwayWagon {
-    private static List<KontenerPrimary> listOfKonteners = new ArrayList<>();
-    private static int maxKonteners = 10;
+    private static List<ContainerPrimary> listOfContainers = new ArrayList<>();
+    private static int maxContainers = 10;
 
-    public static void addKontenerToWagon(KontenerPrimary kontener) {
+    public static void addContainerToWagon(ContainerPrimary container) {
         if (isFreePlaceOnWagon()) {
-            listOfKonteners.add(kontener);
+            listOfContainers.add(container);
         } else {
             System.err.println("Oczekiwanie na odjazd zaladowanego wagonu");
             /**
              * utworzenie obiektu klasy RailwayWagonThread oraz ustawienie czasu oczekiwania na odjazd wagonu na 30 sekund
              */
-            listOfKonteners.removeAll(listOfKonteners);
+            listOfContainers.removeAll(listOfContainers);
             RailwayWagonThread railwayWagonThread = new RailwayWagonThread(30);
             railwayWagonThread.start();
             try {
@@ -32,9 +32,9 @@ public class RailwayWagon {
 
 
     public static void showKontenersInWagon() {
-        if (!listOfKonteners.isEmpty()) {
-            for (int i = 0; i < listOfKonteners.size(); i++) {
-                System.out.println(i + " " + listOfKonteners.get(i));
+        if (!listOfContainers.isEmpty()) {
+            for (int i = 0; i < listOfContainers.size(); i++) {
+                System.out.println(i + " " + listOfContainers.get(i));
             }
         } else {
             System.err.println("Wagon jest pusty" + "\n");
@@ -43,6 +43,6 @@ public class RailwayWagon {
     }
 
     private static boolean isFreePlaceOnWagon() {
-        return listOfKonteners.size() < maxKonteners;
+        return listOfContainers.size() < maxContainers;
     }
 }

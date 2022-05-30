@@ -4,16 +4,16 @@ import projekt.model.Sender;
 
 import java.util.Scanner;
 
-public class KontenerToxicLooseMaterials extends KontenerHeavy {
+public class ContainerToxicLooseMaterials extends ContainerHeavy {
     private String certificateOfToxicLoose;
 
-    public KontenerToxicLooseMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                       double volume, String certificateOfToxicLoose) {
+    public ContainerToxicLooseMaterials(Sender sender, String homePort, double weightNetto, double tara,
+                                        double volume, String certificateOfToxicLoose) {
         super(sender, homePort, weightNetto, tara, volume);
         this.certificateOfToxicLoose = certificateOfToxicLoose;
     }
 
-    public static KontenerToxicLooseMaterials createKontenerToxicLooseMaterials() {
+    public static ContainerToxicLooseMaterials createContainerToxicLooseMaterials() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -27,7 +27,7 @@ public class KontenerToxicLooseMaterials extends KontenerHeavy {
         double volume = scanK.nextDouble();
         System.out.println("Podaj certyfikat dla materialow sypkich");
         String certificateOfToxicLooseMaterials = scanK.nextLine();
-        return new KontenerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume, certificateOfToxicLooseMaterials);
+        return new ContainerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume, certificateOfToxicLooseMaterials);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class KontenerToxicLooseMaterials extends KontenerHeavy {
                 ", waga brutto: " + getWeighBrutto() +
                 ", objetosc: " + getVolume() +
                 ", certyfikat: " + certificateOfToxicLoose +
-                ", ID: " + getKontenerID() +
+                ", ID: " + getContainerID() +
                 '}';
     }
 }

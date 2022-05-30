@@ -12,60 +12,60 @@ public class Ship {
     private String nameOfHomePort;
     private String transportFrom;
     private String transportTo;
-    private int maximumOfEveryKonteners;
+    private int maximumOfEveryContainers;
     private int maximumOfHeavyKonteners;
     private int maximumOfCoolerKonteners;
     private int maximumOfLiquidMaterialsKonteners;
     private int maximumOfToxicKontenres;
     private double maximumWeight;
-    private List<KontenerPrimary> listOfKonteners;
+    private List<ContainerPrimary> listOfContainers;
     private int shipId;
     private int id;
     private static List<Ship> shipList = new ArrayList<>();
 
-    public Ship(String name, String nameOfHomePort, String transportFrom, String transportTo, int maximumOfEveryKonteners,
+    public Ship(String name, String nameOfHomePort, String transportFrom, String transportTo, int maximumOfEveryContainers,
                 int maximumOfHeavyKonteners, int maximumOfCoolerKonteners, int maximumOfLiquidMaterialsKonteners, int maximumOfToxicKontenres,
                 double maximumWeight) {
         this.name = name;
         this.nameOfHomePort = nameOfHomePort;
         this.transportFrom = transportFrom;
         this.transportTo = transportTo;
-        this.maximumOfEveryKonteners = maximumOfEveryKonteners;
+        this.maximumOfEveryContainers = maximumOfEveryContainers;
         this.maximumOfHeavyKonteners = maximumOfHeavyKonteners;
         this.maximumOfCoolerKonteners = maximumOfCoolerKonteners;
         this.maximumOfLiquidMaterialsKonteners = maximumOfLiquidMaterialsKonteners;
         this.maximumOfToxicKontenres = maximumOfToxicKontenres;
         this.maximumWeight = maximumWeight;
-        listOfKonteners = new ArrayList<>();
+        listOfContainers = new ArrayList<>();
         shipId = id;
         id++;
         shipList.add(this);
     }
 
-    public boolean addNewKontener(KontenerPrimary kontener) {
-        boolean isPosibletoAddKontener = false;
-        if (isEnoughtFreeWeight(kontener) && isEnoughtPlaceForKontener()) {
+    public boolean addNewKontener(ContainerPrimary container) {
+        boolean isPosibletoAddContainer = false;
+        if (isEnoughtFreeWeight(container) && isEnoughtPlaceForContainer()) {
             /**
-             * Aby dodac kontener podstawowy wazne jest tylko aby bylo miejsce na statku
+             * Aby dodac container podstawowy wazne jest tylko aby bylo miejsce na statku
              */
-            if (kontener.getClass() == KontenerPrimary.class) {
-                isPosibletoAddKontener = isEnoughtPlaceForKontener();
-            } else if (kontener.getClass() == KontenerHeavy.class) {
-                isPosibletoAddKontener = countHeavyKonteners() < maximumOfHeavyKonteners;
-            } else if (kontener.getClass() == KontenerLiquidMaterials.class) {
-                isPosibletoAddKontener = countLiquidMaterialsKonteners() < maximumOfLiquidMaterialsKonteners;
-            } else if (kontener.getClass() == KontenerCooler.class) {
-                isPosibletoAddKontener = countCoolerKonteners() < maximumOfCoolerKonteners;
-            } else if (kontener.getClass() == KontenerExplosiveMaterials.class) {
-                isPosibletoAddKontener = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
-            } else if (kontener.getClass() == KontenerToxicLiquidMaterials.class) {
-                isPosibletoAddKontener = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
-            } else if (kontener.getClass() == KontenerToxicLooseMaterials.class) {
-                isPosibletoAddKontener = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
+            if (container.getClass() == ContainerPrimary.class) {
+                isPosibletoAddContainer = isEnoughtPlaceForContainer();
+            } else if (container.getClass() == ContainerHeavy.class) {
+                isPosibletoAddContainer = countHeavyKonteners() < maximumOfHeavyKonteners;
+            } else if (container.getClass() == ContainerLiquidMaterials.class) {
+                isPosibletoAddContainer = countLiquidMaterialsKonteners() < maximumOfLiquidMaterialsKonteners;
+            } else if (container.getClass() == ContainerCooler.class) {
+                isPosibletoAddContainer = countCoolerKonteners() < maximumOfCoolerKonteners;
+            } else if (container.getClass() == ContainerExplosiveMaterials.class) {
+                isPosibletoAddContainer = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
+            } else if (container.getClass() == ContainerToxicLiquidMaterials.class) {
+                isPosibletoAddContainer = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
+            } else if (container.getClass() == ContainerToxicLooseMaterials.class) {
+                isPosibletoAddContainer = countToxicAndExplosiveMaterials() < maximumOfToxicKontenres;
             }
         }
-        if (isPosibletoAddKontener) {
-            listOfKonteners.add(kontener);
+        if (isPosibletoAddContainer) {
+            listOfContainers.add(container);
             return true;
         } else {
             System.out.println("Niemozliwe dodanie nowego kontenera na statek");
@@ -74,13 +74,13 @@ public class Ship {
     }
 
 
-    private boolean isEnoughtPlaceForKontener() {
-        return listOfKonteners.size() < maximumOfEveryKonteners;
+    private boolean isEnoughtPlaceForContainer() {
+        return listOfContainers.size() < maximumOfEveryContainers;
     }
 
-    private boolean isEnoughtFreeWeight(KontenerPrimary kontener) {
+    private boolean isEnoughtFreeWeight(ContainerPrimary kontener) {
         double weightOfKonteners = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
+        for (ContainerPrimary elemenet : listOfContainers) {
             weightOfKonteners += elemenet.getWeighBrutto();
         }
         if (kontener.getWeighBrutto() + weightOfKonteners < maximumWeight) {
@@ -117,7 +117,7 @@ public class Ship {
                 maxOfLiquidMaterialsKonteners, maxOfToxicKonteners, maxWeightOfKonteners);
     }
 
-    public static void addKontenerToShip(KontenerPrimary kontener) {
+    public static void addContainerToShip(ContainerPrimary kontener) {
         if (!shipList.isEmpty()) {
             System.out.println("Na jaki statek chcesz dodac?");
             showShipList();
@@ -139,12 +139,12 @@ public class Ship {
     }
 
     public void showKontenersOnShip() {
-        for (int i = 0; i < listOfKonteners.size(); i++) {
-            System.out.println(i + " - " + listOfKonteners.get(i));
+        for (int i = 0; i < listOfContainers.size(); i++) {
+            System.out.println(i + " - " + listOfContainers.get(i));
         }
     }
 
-    public static void whereUnloadKontener(KontenerPrimary kontener) {
+    public static void whereUnloadKontener(ContainerPrimary kontener) {
         listOptionsToUnload();
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
@@ -152,10 +152,10 @@ public class Ship {
             case 0:
                 break;
             case 1:
-                RailwayWagon.addKontenerToWagon(kontener);
+                RailwayWagon.addContainerToWagon(kontener);
                 break;
             case 2:
-                Warehouse.chooseWarehouseToAddKontener(kontener);
+                Warehouse.chooseWarehouseToAddContainer(kontener);
                 break;
         }
     }
@@ -171,18 +171,18 @@ public class Ship {
     }
 
     public void unloadKontener() {
-        if (!listOfKonteners.isEmpty()) {
+        if (!listOfContainers.isEmpty()) {
             System.out.println("Wybierz ktory kontener chcesz wyladowac: ");
             showKontenersOnShip();
             Scanner scan = new Scanner(System.in);
             int decisionVariable = scan.nextInt();
-            while (!(decisionVariable >= 0 && decisionVariable < listOfKonteners.size())) {
+            while (!(decisionVariable >= 0 && decisionVariable < listOfContainers.size())) {
                 System.err.println("Podano zly numer kontenera, podaj ponownie");
                 showKontenersOnShip();
                 decisionVariable = scan.nextInt();
             }
-            KontenerPrimary kontener = listOfKonteners.get(decisionVariable);
-            listOfKonteners.remove(decisionVariable);
+            ContainerPrimary kontener = listOfContainers.get(decisionVariable);
+            listOfContainers.remove(decisionVariable);
             whereUnloadKontener(kontener);
         } else {
             System.err.println("Brak kontenerow na statku");
@@ -248,8 +248,8 @@ public class Ship {
 
     private int countPrimaryKonteners() {
         int count = 0;
-        for (KontenerPrimary element : listOfKonteners) {
-            if (element instanceof KontenerPrimary) {
+        for (ContainerPrimary element : listOfContainers) {
+            if (element instanceof ContainerPrimary) {
                 count++;
             }
         }
@@ -261,8 +261,8 @@ public class Ship {
 
     private int countHeavyKonteners() {
         int count = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
-            if (elemenet instanceof KontenerHeavy) {
+        for (ContainerPrimary elemenet : listOfContainers) {
+            if (elemenet instanceof ContainerHeavy) {
                 count++;
             }
         }
@@ -273,8 +273,8 @@ public class Ship {
 
     private int countCoolerKonteners() {
         int count = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
-            if (elemenet instanceof KontenerCooler) {
+        for (ContainerPrimary elemenet : listOfContainers) {
+            if (elemenet instanceof ContainerCooler) {
                 count++;
             }
         }
@@ -283,8 +283,8 @@ public class Ship {
 
     private int countLiquidMaterialsKonteners() {
         int count = 0;
-        for (KontenerPrimary element : listOfKonteners) {
-            if (element instanceof KontenerLiquidMaterials) {
+        for (ContainerPrimary element : listOfContainers) {
+            if (element instanceof ContainerLiquidMaterials) {
                 count++;
             }
         }
@@ -293,8 +293,8 @@ public class Ship {
 
     private int countExplosiveKonteners() {
         int count = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
-            if (elemenet instanceof KontenerExplosiveMaterials) {
+        for (ContainerPrimary elemenet : listOfContainers) {
+            if (elemenet instanceof ContainerExplosiveMaterials) {
                 count++;
             }
         }
@@ -303,8 +303,8 @@ public class Ship {
 
     private int countToxicLiquidKonteners() {
         int count = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
-            if (elemenet instanceof KontenerToxicLiquidMaterials) {
+        for (ContainerPrimary elemenet : listOfContainers) {
+            if (elemenet instanceof ContainerToxicLiquidMaterials) {
                 count++;
             }
         }
@@ -313,8 +313,8 @@ public class Ship {
 
     private int countToxicLooseKonteners() {
         int count = 0;
-        for (KontenerPrimary elemenet : listOfKonteners) {
-            if (elemenet instanceof KontenerToxicLooseMaterials) {
+        for (ContainerPrimary elemenet : listOfContainers) {
+            if (elemenet instanceof ContainerToxicLooseMaterials) {
                 count++;
             }
         }
@@ -327,14 +327,14 @@ public class Ship {
                 ", nameOfHomePort: " + nameOfHomePort +
                 ", transportFrom: " + transportFrom +
                 ", transportTo: " + transportTo + '\n' +
-                " PrimaryKonteners: " + countPrimaryKonteners() + "/" + maximumOfEveryKonteners +
+                " PrimaryKonteners: " + countPrimaryKonteners() + "/" + maximumOfEveryContainers +
                 ", HeavyKonteners: " + countHeavyKonteners() + "/" + maximumOfHeavyKonteners +
                 ", LiquidKonteners: " + countLiquidMaterialsKonteners() + "/" + maximumOfLiquidMaterialsKonteners +
                 ", ToxicKontenres: " + (countToxicLiquidKonteners() + countExplosiveKonteners() + countToxicLooseKonteners()) + "/" + maximumOfToxicKontenres +
                 ", CoolerKonteners: " + countCoolerKonteners() + "/" + maximumOfCoolerKonteners +
-                ", EveryKonteners: " + listOfKonteners.size() + "/" + maximumOfEveryKonteners +
+                ", EveryKonteners: " + listOfContainers.size() + "/" + maximumOfEveryContainers +
                 ", maximumWeight: " + maximumWeight +
-                ", listOfKonteners: " + listOfKonteners +
+                ", listOfKonteners: " + listOfContainers +
                 ", shipId: " + shipId;
     }
 }

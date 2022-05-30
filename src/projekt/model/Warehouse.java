@@ -1,10 +1,10 @@
 package projekt.model;
 
-import projekt.model.konteners.KontenerExplosiveMaterials;
-import projekt.model.konteners.KontenerPrimary;
-import projekt.model.konteners.KontenerToxicLiquidMaterials;
-import projekt.model.konteners.KontenerToxicLooseMaterials;
-import projekt.threads.KontenerTimer;
+import projekt.model.konteners.ContainerExplosiveMaterials;
+import projekt.model.konteners.ContainerPrimary;
+import projekt.model.konteners.ContainerToxicLiquidMaterials;
+import projekt.model.konteners.ContainerToxicLooseMaterials;
+import projekt.threads.ContainerTimer;
 import projekt.threads.Timer;
 
 import java.util.ArrayList;
@@ -13,23 +13,23 @@ import java.util.Scanner;
 
 public class Warehouse {
     private String city;
-    private int maxKonteners;
+    private int maxContainers;
     private int warehouseId;
     private static int warehousesId = 0;
-    private List<KontenerPrimary> listOfKonteners;
+    private List<ContainerPrimary> listOfContainers;
     private static List<Warehouse> warehouseList = new ArrayList<>();
 
 
-    public Warehouse(String city, int maxKonteners) {
+    public Warehouse(String city, int maxContainers) {
         this.city = city;
-        this.maxKonteners = maxKonteners;
+        this.maxContainers = maxContainers;
         warehouseId = warehousesId;
-        listOfKonteners = new ArrayList<>();
+        listOfContainers = new ArrayList<>();
         warehouseList.add(this);
         warehousesId++;
     }
 
-    public static void chooseWarehouseToAddKontener(KontenerPrimary kontener) {
+    public static void chooseWarehouseToAddContainer(ContainerPrimary container) {
         showWarehouses();
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
@@ -38,13 +38,13 @@ public class Warehouse {
             showWarehouses();
             decisionVariable = scan.nextInt();
         }
-        warehouseList.get(decisionVariable).addKontenerToWarehouse(kontener);
+        warehouseList.get(decisionVariable).addContainerToWarehouse(container);
     }
 
-    public void addKontenerToWarehouse(KontenerPrimary kontener) {
-        if (listOfKonteners.size() < maxKonteners) {
-            if (kontener.getSender().getWarnings() <= 3) {
-                addKontenerAndStartThread(kontener);
+    public void addContainerToWarehouse(ContainerPrimary container) {
+        if (listOfContainers.size() < maxContainers) {
+            if (container.getSender().getWarnings() <= 3) {
+                addContainerAndStartThread(container);
             } else {
                 System.err.println('\n' + "Nie przyjmuje towaru, nadawca ma zbyt duzo ostrzezen!");
             }
@@ -53,21 +53,21 @@ public class Warehouse {
         }
     }
 
-    private void addKontenerAndStartThread(KontenerPrimary kontener) {
-        if (kontener instanceof KontenerExplosiveMaterials) {
-            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 2, this);
-            Timer.addKontener(kontenerTimer);
-            listOfKonteners.add(kontener);
-        } else if (kontener instanceof KontenerToxicLiquidMaterials) {
-            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 10, this);
-            Timer.addKontener(kontenerTimer);
-            listOfKonteners.add(kontener);
-        } else if (kontener instanceof KontenerToxicLooseMaterials) {
-            KontenerTimer kontenerTimer = new KontenerTimer(kontener, 15, this);
-            Timer.addKontener(kontenerTimer);
-            listOfKonteners.add(kontener);
+    private void addContainerAndStartThread(ContainerPrimary container) {
+        if (container instanceof ContainerExplosiveMaterials) {
+            ContainerTimer containerTimer = new ContainerTimer(container, 5, this);
+            Timer.addContainer(containerTimer);
+            listOfContainers.add(container);
+        } else if (container instanceof ContainerToxicLiquidMaterials) {
+            ContainerTimer containerTimer = new ContainerTimer(container, 10, this);
+            Timer.addContainer(containerTimer);
+            listOfContainers.add(container);
+        } else if (container instanceof ContainerToxicLooseMaterials) {
+            ContainerTimer containerTimer = new ContainerTimer(container, 15, this);
+            Timer.addContainer(containerTimer);
+            listOfContainers.add(container);
         } else {
-            listOfKonteners.add(kontener);
+            listOfContainers.add(container);
         }
     }
 
@@ -77,16 +77,16 @@ public class Warehouse {
         }
     }
 
-    public List<KontenerPrimary> getListOfKonteners() {
-        return listOfKonteners;
+    public List<ContainerPrimary> getListOfContainers() {
+        return listOfContainers;
     }
 
     @Override
     public String toString() {
         return "Warehouse{" +
-                "maxKonteners=" + maxKonteners +
+                "maxKonteners=" + maxContainers +
                 ", warehouseId=" + warehouseId +
-                ", konteners=" + listOfKonteners.size() +
+                ", konteners=" + listOfContainers.size() +
                 '}';
     }
 }

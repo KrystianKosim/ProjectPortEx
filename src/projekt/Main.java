@@ -92,32 +92,32 @@ public class Main {
             case 0:
                 break;
             case 1:
-                KontenerPrimary kontenerPrimary = KontenerPrimary.createKontenerPrimary();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerPrimary);
+                ContainerPrimary containerPrimary = ContainerPrimary.createContainerPrimary();
+                ContainerPrimary.chooseActionToDoOnNewContainer(containerPrimary);
                 break;
             case 2:
-                KontenerHeavy kontenerHeavy = KontenerHeavy.createKontenerHeavy();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerHeavy);
+                ContainerHeavy containerHeavy = ContainerHeavy.createContainerHeavy();
+                ContainerPrimary.chooseActionToDoOnNewContainer(containerHeavy);
                 break;
             case 3:
-                KontenerCooler kontenerCooler = KontenerCooler.createKontenerCooler();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerCooler);
+                ContainerCooler kontenerCooler = ContainerCooler.createContainerCooler();
+                ContainerPrimary.chooseActionToDoOnNewContainer(kontenerCooler);
                 break;
             case 4:
-                KontenerLiquidMaterials kontenerLiquidMaterials = KontenerLiquidMaterials.createKontenerLiquid();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerLiquidMaterials);
+                ContainerLiquidMaterials containerLiquidMaterials = ContainerLiquidMaterials.createContainerLiquid();
+                ContainerPrimary.chooseActionToDoOnNewContainer(containerLiquidMaterials);
                 break;
             case 5:
-                KontenerExplosiveMaterials kontenerExplosiveMaterials = KontenerExplosiveMaterials.createKontenerExplosiveMaterials();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerExplosiveMaterials);
+                ContainerExplosiveMaterials containerExplosiveMaterials = ContainerExplosiveMaterials.createContainerExplosiveMaterials();
+                ContainerPrimary.chooseActionToDoOnNewContainer(containerExplosiveMaterials);
                 break;
             case 6:
-                KontenerToxicLooseMaterials kontenerToxicLooseMaterials = KontenerToxicLooseMaterials.createKontenerToxicLooseMaterials();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerToxicLooseMaterials);
+                ContainerToxicLooseMaterials kontenerToxicLooseMaterials = ContainerToxicLooseMaterials.createContainerToxicLooseMaterials();
+                ContainerPrimary.chooseActionToDoOnNewContainer(kontenerToxicLooseMaterials);
                 break;
             case 7:
-                KontenerToxicLiquidMaterials kontenerToxicLiquidMaterials = KontenerToxicLiquidMaterials.createKontenerToxicLiquidMaterials();
-                KontenerPrimary.chooseActionToDoOnNewKontener(kontenerToxicLiquidMaterials);
+                ContainerToxicLiquidMaterials kontenerToxicLiquidMaterials = ContainerToxicLiquidMaterials.createContainerToxicLiquidMaterials();
+                ContainerPrimary.chooseActionToDoOnNewContainer(kontenerToxicLiquidMaterials);
                 break;
         }
     }

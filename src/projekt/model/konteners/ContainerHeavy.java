@@ -4,15 +4,15 @@ import projekt.model.Sender;
 
 import java.util.Scanner;
 
-public class KontenerHeavy extends KontenerPrimary {
+public class ContainerHeavy extends ContainerPrimary {
     private double volume;
 
-    public KontenerHeavy(Sender sender, String homePort, double weightNetto, double tara, double volume) {
+    public ContainerHeavy(Sender sender, String homePort, double weightNetto, double tara, double volume) {
         super(sender, homePort, weightNetto, tara);
         this.volume = volume;
     }
 
-    public static KontenerHeavy createKontenerHeavy() {
+    public static ContainerHeavy createContainerHeavy() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -24,7 +24,7 @@ public class KontenerHeavy extends KontenerPrimary {
         double tara = scanK.nextDouble();
         System.out.println("Podaj objetosc");
         double volume = scanK.nextDouble();
-        return new KontenerHeavy(sender, homePort, weightNetto, tara, volume);
+        return new ContainerHeavy(sender, homePort, weightNetto, tara, volume);
     }
 
     public double getVolume() {
@@ -33,14 +33,13 @@ public class KontenerHeavy extends KontenerPrimary {
 
     @Override
     public String toString() {
-        return "Kontener ciezki{" +
-                getSender() +
+        return "Kontener ciezki{" + getSender() +
                 ", port nadania: " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +
                 ", objetosc: " + volume +
-                ", ID: " + getKontenerID() +
+                ", ID: " + getContainerID() +
                 '}';
     }
 }

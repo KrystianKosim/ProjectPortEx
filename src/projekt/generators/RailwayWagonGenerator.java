@@ -1,23 +1,23 @@
 package projekt.generators;
 
 import projekt.model.RailwayWagon;
-import projekt.model.konteners.KontenerPrimary;
+import projekt.model.konteners.ContainerPrimary;
 
 import java.util.List;
 
 public class RailwayWagonGenerator {
     public static void railwayWagnosGenerator() {
-        List<KontenerPrimary> list = KontenerPrimary.getKontenerPrimaryList();
+        List<ContainerPrimary> list = ContainerPrimary.getContainerPrimaryList();
 
-        RailwayWagon.addKontenerToWagon(list.get(0));
-        RailwayWagon.addKontenerToWagon(list.get(1));
-        RailwayWagon.addKontenerToWagon(list.get(2));
-        RailwayWagon.addKontenerToWagon(list.get(0));
-        RailwayWagon.addKontenerToWagon(list.get(0));
-        RailwayWagon.addKontenerToWagon(list.get(3));
-        RailwayWagon.addKontenerToWagon(list.get(1));
-        RailwayWagon.addKontenerToWagon(list.get(4));
-        RailwayWagon.addKontenerToWagon(list.get(5));
-        RailwayWagon.addKontenerToWagon(list.get(6));
+        RailwayWagon.addContainerToWagon(list.get(0));
+        RailwayWagon.addContainerToWagon(list.get(1));
+        RailwayWagon.addContainerToWagon(list.get(2));
+        RailwayWagon.addContainerToWagon(list.get(0));
+        RailwayWagon.addContainerToWagon(list.get(0));
+        RailwayWagon.addContainerToWagon(list.get(3));
+        RailwayWagon.addContainerToWagon(list.get(1));
+        RailwayWagon.addContainerToWagon(list.get(4));
+        RailwayWagon.addContainerToWagon(list.get(5));
+        RailwayWagon.addContainerToWagon(list.get(6));
     }
 }

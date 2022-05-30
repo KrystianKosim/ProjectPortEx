@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class KontenerPrimary {
+public class ContainerPrimary {
     /**
      * name z String zmienione na Sender, zmienic metody tworzenia kontenerow
      */
@@ -18,22 +18,22 @@ public class KontenerPrimary {
     private double weightNetto;
     private double tara;
     private double weighBrutto;
-    private int kontenerID;
+    private int containerID;
     private static int id = 0;
-    private static List<KontenerPrimary> kontenerPrimaryList = new ArrayList<>();
+    private static List<ContainerPrimary> containerPrimaryList = new ArrayList<>();
 
-    public KontenerPrimary(Sender sender, String homePort, double weightNetto, double tara) {
+    public ContainerPrimary(Sender sender, String homePort, double weightNetto, double tara) {
         this.sender = sender;
         this.homePort = homePort;
         this.weightNetto = weightNetto;
         this.tara = tara;
         weighBrutto = weightNetto + tara;
-        kontenerID = id++;
-        kontenerPrimaryList.add(this);
+        containerID = id++;
+        containerPrimaryList.add(this);
     }
 
 
-    public static KontenerPrimary createKontenerPrimary() {
+    public static ContainerPrimary createContainerPrimary() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -43,24 +43,24 @@ public class KontenerPrimary {
         double weightNetto = scanK.nextDouble();
         System.out.println("Podaj tare");
         double tara = scanK.nextDouble();
-        return new KontenerPrimary(sender, homePort, weightNetto, tara);
+        return new ContainerPrimary(sender, homePort, weightNetto, tara);
     }
 
-    public static void chooseActionToDoOnNewKontener(KontenerPrimary kontener) {
-        showLists(actionsToDoOnNewKontener());
+    public static void chooseActionToDoOnNewContainer(ContainerPrimary container) {
+        showLists(actionsToDoOnNewContainer());
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
         switch (decisionVariable) {
             case 0:
                 break;
             case 1:
-                Ship.addKontenerToShip(kontener);
+                Ship.addContainerToShip(container);
                 break;
             case 2:
-                RailwayWagon.addKontenerToWagon(kontener);
+                RailwayWagon.addContainerToWagon(container);
                 break;
             case 3:
-                Warehouse.chooseWarehouseToAddKontener(kontener);
+                Warehouse.chooseWarehouseToAddContainer(container);
                 break;
         }
     }
@@ -71,7 +71,7 @@ public class KontenerPrimary {
         }
     }
 
-    private static List<String> actionsToDoOnNewKontener() {
+    private static List<String> actionsToDoOnNewContainer() {
         List<String> list = new ArrayList<>();
         list.add("Wyjdz");
         list.add("Zaladuj kontener na statek");
@@ -93,8 +93,8 @@ public class KontenerPrimary {
         return tara;
     }
 
-    public int getKontenerID() {
-        return kontenerID;
+    public int getContainerID() {
+        return containerID;
     }
 
     public double getWeighBrutto() {
@@ -105,19 +105,18 @@ public class KontenerPrimary {
         return sender;
     }
 
-    public static List<KontenerPrimary> getKontenerPrimaryList() {
-        return kontenerPrimaryList;
+    public static List<ContainerPrimary> getContainerPrimaryList() {
+        return containerPrimaryList;
     }
 
     @Override
     public String toString() {
-        return "Kontener podstawowy{" +
-                sender +
+        return "Kontener podstawowy{" + sender +
                 ", port nadania: " + homePort +
                 ", waga netto: " + weightNetto +
                 ", tara: " + tara +
                 ", waga brutto: " + weighBrutto +
-                ", ID: " + kontenerID +
+                ", ID: " + containerID +
                 '}';
     }
 }

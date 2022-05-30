@@ -7,7 +7,7 @@ import java.util.List;
 public class Timer extends Thread {
 
     private static LocalDate dateInProgram = LocalDate.now();
-    private static List<KontenerTimer> activeKonteners = new ArrayList<>();
+    private static List<ContainerTimer> activeContainers = new ArrayList<>();
 
     @Override
     public void run() {
@@ -15,36 +15,36 @@ public class Timer extends Thread {
             try {
                 sleep(10000);
                 dateInProgram = dateInProgram.plusDays(1);
-                chceckKonteners();
+                chceckContainers();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void chceckKonteners() {
-        List<KontenerTimer> kontenersToRemove = new ArrayList<>();
-        for (KontenerTimer kontener : activeKonteners) {
-            if (kontener.getDeadline().equals(dateInProgram)) {
-                kontenersToRemove.add(kontener);
+    public static void chceckContainers() {
+        List<ContainerTimer> containersToRemove = new ArrayList<>();
+        for (ContainerTimer container : activeContainers) {
+            if (container.getDeadline().equals(dateInProgram)) {
+                containersToRemove.add(container);
             }
         }
-        if (!kontenersToRemove.isEmpty()) {
-            removeAllKontenersFromList(kontenersToRemove);
+        if (!containersToRemove.isEmpty()) {
+            removeAllContainersFromList(containersToRemove);
         }
     }
 
-    private static void removeAllKontenersFromList(List<KontenerTimer> kontenersToRemove) {
-        for (KontenerTimer kontener : kontenersToRemove) {
-            kontener.remove();
+    private static void removeAllContainersFromList(List<ContainerTimer> containersToRemove) {
+        for (ContainerTimer container : containersToRemove) {
+            container.remove();
         }
-        System.err.println("Dzis " + dateInProgram + " usunieto " + kontenersToRemove.size() + " kontenerow");
-        activeKonteners.removeAll(kontenersToRemove);
+        System.err.println("Dzis " + dateInProgram + " usunieto " + containersToRemove.size() + " kontenerow");
+        activeContainers.removeAll(containersToRemove);
     }
 
 
-    public static void addKontener(KontenerTimer kontenerTimer) {
-        activeKonteners.add(kontenerTimer);
+    public static void addContainer(ContainerTimer containerTimer) {
+        activeContainers.add(containerTimer);
     }
 
     public static LocalDate getDateInProgram() {

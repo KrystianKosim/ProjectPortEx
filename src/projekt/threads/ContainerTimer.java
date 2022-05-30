@@ -1,17 +1,17 @@
 package projekt.threads;
 
 import projekt.model.Warehouse;
-import projekt.model.konteners.KontenerPrimary;
+import projekt.model.konteners.ContainerPrimary;
 
 import java.time.LocalDate;
 
-public class KontenerTimer {
-    private KontenerPrimary kontener;
+public class ContainerTimer {
+    private ContainerPrimary kontener;
     private Warehouse warehouse;
     private LocalDate dateOfArrival;
     private LocalDate deadline;
 
-    public KontenerTimer(KontenerPrimary kontener, int daysInMagazine, Warehouse warehouse) {
+    public ContainerTimer(ContainerPrimary kontener, int daysInMagazine, Warehouse warehouse) {
         this.kontener = kontener;
         this.warehouse = warehouse;
         dateOfArrival = Timer.getDateInProgram();
@@ -20,11 +20,11 @@ public class KontenerTimer {
 
     public void remove() {
         kontener.getSender().addWarning();
-        warehouse.getListOfKonteners().remove(kontener);
-        KontenerPrimary.getKontenerPrimaryList().remove(kontener);
+        warehouse.getListOfContainers().remove(kontener);
+        ContainerPrimary.getContainerPrimaryList().remove(kontener);
     }
 
-    public KontenerPrimary getKontener() {
+    public ContainerPrimary getKontener() {
         return kontener;
     }
 

@@ -4,15 +4,15 @@ import projekt.model.Sender;
 
 import java.util.Scanner;
 
-public class KontenerLiquidMaterials extends KontenerPrimary {
+public class ContainerLiquidMaterials extends ContainerPrimary {
     private double maxLitersOfLiquid;
 
-    public KontenerLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara, double maxLitersOfLiquid) {
+    public ContainerLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara, double maxLitersOfLiquid) {
         super(sender, homePort, weightNetto, tara);
         this.maxLitersOfLiquid = maxLitersOfLiquid;
     }
 
-    public static KontenerLiquidMaterials createKontenerLiquid() {
+    public static ContainerLiquidMaterials createContainerLiquid() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -24,7 +24,7 @@ public class KontenerLiquidMaterials extends KontenerPrimary {
         double tara = scanK.nextDouble();
         System.out.println("Maksymalna pojemnosc w litrach");
         double maxLitersOfLiquid = scanK.nextDouble();
-        return new KontenerLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
+        return new ContainerLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
     }
 
     public double getMaxLitersOfLiquid() {
@@ -33,14 +33,13 @@ public class KontenerLiquidMaterials extends KontenerPrimary {
 
     @Override
     public String toString() {
-        return "Kontener na ciekle materialy{" +
-                getSender() +
+        return "Kontener na ciekle materialy{" + getSender() +
                 ", port nadania: " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +
                 ", max. poj. cieczy: " + maxLitersOfLiquid +
-                ", ID: " + getKontenerID() +
+                ", ID: " + getContainerID() +
                 '}';
     }
 }

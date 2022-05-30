@@ -4,16 +4,16 @@ import projekt.model.Sender;
 
 import java.util.Scanner;
 
-public class KontenerToxicLiquidMaterials extends KontenerLiquidMaterials {
+public class ContainerToxicLiquidMaterials extends ContainerLiquidMaterials {
     private String cerificateOfToxicLiquidMaterials;
 
-    public KontenerToxicLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                        double maxLitersOfLiquid, String cerificateOfToxicLiquidMaterials) {
+    public ContainerToxicLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara,
+                                         double maxLitersOfLiquid, String cerificateOfToxicLiquidMaterials) {
         super(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
         this.cerificateOfToxicLiquidMaterials = cerificateOfToxicLiquidMaterials;
     }
 
-    public static KontenerToxicLiquidMaterials createKontenerToxicLiquidMaterials() {
+    public static ContainerToxicLiquidMaterials createContainerToxicLiquidMaterials() {
         Scanner scanK = new Scanner(System.in);
         System.out.println("Nadawca");
         Sender sender = Sender.chooseSenderToDo();
@@ -27,20 +27,19 @@ public class KontenerToxicLiquidMaterials extends KontenerLiquidMaterials {
         double maxLitersOfLiquid = scanK.nextDouble();
         System.out.println("Certyfikat dla toksycznych materialow cieklych");
         String cerificateOfToxicLiquidMaterials = scanK.nextLine();
-        return new KontenerToxicLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid, cerificateOfToxicLiquidMaterials);
+        return new ContainerToxicLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid, cerificateOfToxicLiquidMaterials);
     }
 
     @Override
     public String toString() {
-        return "Kontener na toksyczne materialy ciekle{" +
-                getSender() +
+        return "Kontener na toksyczne materialy ciekle{" + getSender() +
                 ", port nadania: " + getHomePort() +
                 ", waga netto: " + getWeightNetto() +
                 ", tara: " + getTara() +
                 ", waga brutto: " + getWeighBrutto() +
                 ", max. poj. cieczy:  " + getMaxLitersOfLiquid() +
                 ", certyfikat: " + cerificateOfToxicLiquidMaterials +
-                ", ID: " + getKontenerID() +
+                ", ID: " + getContainerID() +
                 '}';
     }
 }
