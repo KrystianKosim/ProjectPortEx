@@ -1,6 +1,6 @@
 package projekt.generators;
 
-import projekt.model.Ship;
+import projekt.models.Ship;
 
 public class ShipGenerator {
     public static void shipGenerator() {

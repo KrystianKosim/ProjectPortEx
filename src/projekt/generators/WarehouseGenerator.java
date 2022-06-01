@@ -1,6 +1,6 @@
 package projekt.generators;
 
-import projekt.model.Warehouse;
+import projekt.models.Warehouse;
 
 public class WarehouseGenerator {
     public static void warehouseGenerator() {

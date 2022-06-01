@@ -1,6 +1,6 @@
 package projekt.generators;
 
-import projekt.model.Sender;
+import projekt.models.Sender;
 
 public class SenderGenerator {
     public static void sendersGenerator() {

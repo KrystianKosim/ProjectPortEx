@@ -1,7 +1,7 @@
 package projekt.generators;
 
-import projekt.model.Sender;
-import projekt.model.konteners.*;
+import projekt.models.Sender;
+import projekt.models.konteners.*;
 
 import java.util.List;
 
