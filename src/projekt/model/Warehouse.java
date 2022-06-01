@@ -20,7 +20,7 @@ public class Warehouse {
     private static List<Warehouse> warehouseList = new ArrayList<>();
 
 
-    public Warehouse(String city, int maxContainers) {
+    private Warehouse(String city, int maxContainers) {
         this.city = city;
         this.maxContainers = maxContainers;
         warehouseId = warehousesId;
@@ -28,6 +28,8 @@ public class Warehouse {
         warehouseList.add(this);
         warehousesId++;
     }
+
+
 
     public static void chooseWarehouseToAddContainer(ContainerPrimary container) {
         showWarehouses();
@@ -68,6 +70,25 @@ public class Warehouse {
             listOfContainers.add(container);
         } else {
             listOfContainers.add(container);
+        }
+    }
+
+    public static class Builder{
+        private String city;
+        private int maxContainers;
+
+        public Builder city(String city){
+            this.city = city;
+            return this;
+        }
+
+        public Builder maxContainers(int maxContainers){
+            this.maxContainers = maxContainers;
+            return this;
+        }
+
+        public Warehouse build(){
+            return new Warehouse(city,maxContainers);
         }
     }
 

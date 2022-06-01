@@ -22,7 +22,7 @@ public class ContainerPrimary {
     private static int id = 0;
     private static List<ContainerPrimary> containerPrimaryList = new ArrayList<>();
 
-    public ContainerPrimary(Sender sender, String homePort, double weightNetto, double tara) {
+    protected ContainerPrimary(Sender sender, String homePort, double weightNetto, double tara) {
         this.sender = sender;
         this.homePort = homePort;
         this.weightNetto = weightNetto;
@@ -31,7 +31,6 @@ public class ContainerPrimary {
         containerID = id++;
         containerPrimaryList.add(this);
     }
-
 
     public static ContainerPrimary createContainerPrimary() {
         Scanner scanK = new Scanner(System.in);
@@ -62,6 +61,37 @@ public class ContainerPrimary {
             case 3:
                 Warehouse.chooseWarehouseToAddContainer(container);
                 break;
+        }
+    }
+
+    public static class Builder {
+        private Sender sender;
+        private String homePort;
+        private double weightNetto;
+        private double tara;
+
+        public Builder sender(Sender sender) {
+            this.sender = sender;
+            return this;
+        }
+
+        public Builder homePort(String homePort) {
+            this.homePort = homePort;
+            return this;
+        }
+
+        public Builder weightNetto(double weightNetto) {
+            this.weightNetto = weightNetto;
+            return this;
+        }
+
+        public Builder tara(double tara) {
+            this.tara = tara;
+            return this;
+        }
+
+        public ContainerPrimary build() {
+            return new ContainerPrimary(sender, homePort, weightNetto, tara);
         }
     }
 

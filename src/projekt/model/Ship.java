@@ -23,7 +23,7 @@ public class Ship {
     private int id;
     private static List<Ship> shipList = new ArrayList<>();
 
-    public Ship(String name, String nameOfHomePort, String transportFrom, String transportTo, int maximumOfEveryContainers,
+    private Ship(String name, String nameOfHomePort, String transportFrom, String transportTo, int maximumOfEveryContainers,
                 int maximumOfHeavyKonteners, int maximumOfCoolerKonteners, int maximumOfLiquidMaterialsKonteners, int maximumOfToxicKontenres,
                 double maximumWeight) {
         this.name = name;
@@ -41,6 +41,8 @@ public class Ship {
         id++;
         shipList.add(this);
     }
+
+
 
     public boolean addNewKontener(ContainerPrimary container) {
         boolean isPosibletoAddContainer = false;
@@ -234,6 +236,74 @@ public class Ship {
             shipToReturn = Ship.createShip();
         }
         return shipToReturn;
+    }
+
+    public static class Builder{
+        private String name;
+        private String nameOfHomePort;
+        private String transportFrom;
+        private String transportTo;
+        private int maximumOfEveryContainers;
+        private int maximumOfHeavyKonteners;
+        private int maximumOfCoolerKonteners;
+        private int maximumOfLiquidMaterialsKonteners;
+        private int maximumOfToxicKontenres;
+        private double maximumWeight;
+
+        public Builder name(String name){
+            this.name = name;
+            return this;
+        }
+
+        public Builder nameOfHomePort(String nameOfHomePort){
+            this.nameOfHomePort = nameOfHomePort;
+            return this;
+        }
+
+        public Builder transportFrom(String transportFrom){
+            this.transportFrom = transportFrom;
+            return this;
+        }
+
+        public Builder transportTo(String transportTo){
+            this.transportTo = transportTo;
+            return this;
+        }
+
+        public Builder maximumOfEveryContainers(int maximumOfEveryContainers){
+            this.maximumOfEveryContainers = maximumOfEveryContainers;
+            return this;
+        }
+
+        public Builder maximumOfHeavyKonteners(int maximumOfHeavyKonteners){
+            this.maximumOfHeavyKonteners = maximumOfHeavyKonteners;
+            return this;
+        }
+
+        public Builder maximumOfCoolerKonteners(int maximumOfCoolerKonteners){
+            this.maximumOfCoolerKonteners = maximumOfCoolerKonteners;
+            return this;
+        }
+
+        public Builder maximumOfLiquidMaterialsKonteners(int maximumOfLiquidMaterialsKonteners){
+            this.maximumOfLiquidMaterialsKonteners = maximumOfLiquidMaterialsKonteners;
+            return this;
+        }
+
+        public Builder maximumOfToxicKontenres(int maximumOfToxicKontenres){
+            this.maximumOfToxicKontenres = maximumOfToxicKontenres;
+            return this;
+        }
+
+        public Builder maximumWeight(double maximumWeight){
+            this.maximumWeight = maximumWeight;
+            return this;
+        }
+
+        public Ship build(){
+            return new Ship(name, nameOfHomePort, transportFrom,transportTo,maximumOfEveryContainers, maximumOfHeavyKonteners,
+                    maximumOfCoolerKonteners,maximumOfLiquidMaterialsKonteners,maximumOfToxicKontenres,maximumWeight);
+        }
     }
 
     public static void showShipList() {

@@ -4,21 +4,101 @@ import projekt.model.Sender;
 
 public class SenderGenerator {
     public static void sendersGenerator() {
-        Sender senderJan = new Sender("Jan", "Kowalski", "00221110231", "Warszawa");
-        Sender senderAdam = new Sender("Adam", "Nowak", "92111211111", "Gdansk");
-        Sender senderAnna = new Sender("Anna", "Lewandowska", "80082212321", "Krakow");
-        Sender senderKatarzyna = new Sender("Katarzyna", "Zielinska", "03210398732", "Wroclaw");
-        Sender senderJoanna = new Sender("Joanna", "Zielinska", "64110135946", "Lublin");
-        Sender senderEwelina = new Sender("Ewelina", "Kaminska", "57021832873", "Bialystok");
-        Sender senderRobert = new Sender("Robert", "Jankowski", "02230224915", "Rzeszow");
-        Sender senderKrystian = new Sender("Krystian", "Szymanski", "97110919368", "Kielce");
-        Sender senderKarolina = new Sender("Karolina", "Nowicka", "99091688259", "Olsztyn");
-        Sender senderAlicja = new Sender("Alicja", "Pawlak", "92051627271", "Warszawa");
-        Sender senderKrzysztof = new Sender("Krzysztof", "Kaczmarek", "00222783637", "Kalisz");
-        Sender senderMarcin = new Sender("Marcin", "Krawczyk", "96071547485", "Opole");
-        Sender senderMariusz = new Sender("Mariusz", "Dudek", "75031596817", "Tychy");
-        Sender senderMaciej = new Sender("Maciej", "Zalewski", "86012831528", "Poznan");
-        Sender senderArkadiusz = new Sender("Arkadiusz", "Borkowski", "71040663847", "Szczecin");
-        Sender senderPatryk = new Sender("Patryk", "Jakubowski", "47080598874", "Katowice");
+        new Sender.Builder()
+                .name("Jan")
+                .surname("Kowalski")
+                .pesel("00221110231")
+                .address("Warszawa")
+                .build();
+        new Sender.Builder()
+                .name("Adam")
+                .surname("Nowak")
+                .pesel("92111211111")
+                .address("Gdansk")
+                .build();
+        new Sender.Builder()
+                .surname("Lewandowska")
+                .name("Anna")
+                .address("Krakow")
+                .pesel("80082212321")
+                .build();
+        new Sender.Builder()
+                .name("Katarzyna")
+                .surname("Zielinska")
+                .pesel("03210398732")
+                .address("Wroclaw")
+                .build();
+        new Sender.Builder()
+                .name("Joanna")
+                .surname("Zielinska")
+                .pesel("64110135946")
+                .address("Lublin")
+                .build();
+        new Sender.Builder()
+                .name("Ewelina")
+                .surname("Kaminska")
+                .pesel("57021832873")
+                .address("Bialystok")
+                .build();
+        new Sender.Builder()
+                .name("Robert")
+                .surname("Jankowski")
+                .pesel("02230224915")
+                .address("Rzeszow")
+                .build();
+        new Sender.Builder()
+                .name("Krystian")
+                .surname("Szymanski")
+                .pesel("97110919368")
+                .address("Kielce")
+                .build();
+        new Sender.Builder()
+                .name("Karolina")
+                .surname("Nowicka")
+                .pesel("99091688259")
+                .address("Olsztyn")
+                .build();
+        new Sender.Builder()
+                .name("Alicja")
+                .surname("Pawlak")
+                .pesel("92051627271")
+                .address("Warszawa")
+                .build();
+        new Sender.Builder()
+                .name("Krzysztof")
+                .surname("Kaczmarek")
+                .pesel("00222783637")
+                .address("Kalisz")
+                .build();
+        new Sender.Builder()
+                .name("Marcin")
+                .surname("Krawczyk")
+                .pesel("96071547485")
+                .address("Opole")
+                .build();
+        new Sender.Builder()
+                .name("Mariusz")
+                .surname("Dudek")
+                .pesel("75031596817")
+                .address("Tychy")
+                .build();
+        new Sender.Builder()
+                .name("Maciej")
+                .surname("Zalewski")
+                .pesel("86012831528")
+                .address("Poznan")
+                .build();
+        new Sender.Builder()
+                .name("Arkadiusz")
+                .surname("Borkowski")
+                .pesel("71040663847")
+                .address("Szczecin")
+                .build();
+        new Sender.Builder()
+                .name("Patryk")
+                .surname("Jakubowski")
+                .pesel("47080598874")
+                .address("Katowice")
+                .build();
     }
 }

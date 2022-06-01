@@ -14,7 +14,7 @@ public class Sender {
     private int warnings;
     private static List<Sender> senderList = new ArrayList<>();
 
-    public Sender(String name, String surname, String pesel, String address) {
+    private Sender(String name, String surname, String pesel, String address) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
@@ -23,6 +23,8 @@ public class Sender {
         warnings = 0;
         senderList.add(this);
     }
+
+
 
     public LocalDate getAge() {
         int year = getIntFromString(pesel.substring(0, 2));
@@ -136,6 +138,37 @@ public class Sender {
         } else {
             System.out.println("Nie ma zadnego nadawcy,trzeba utworzyc nowego nadawce");
             return createSender();
+        }
+    }
+
+    public static class Builder{
+        private String name;
+        private String surname;
+        private String pesel;
+        private String address;
+
+        public Builder name(String name){
+            this.name = name;
+            return this;
+        }
+
+        public Builder surname(String surname){
+            this.surname = surname;
+            return this;
+        }
+
+        public Builder pesel(String pesel){
+            this.pesel = pesel;
+            return this;
+        }
+
+        public Builder address(String address){
+            this.address = address;
+            return this;
+        }
+
+        public Sender build(){
+            return new Sender(name, surname,pesel,address);
         }
     }
 

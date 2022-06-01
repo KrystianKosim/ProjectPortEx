@@ -8,15 +8,59 @@ import java.util.List;
 public class KontenersGenerator {
 
     public static void kontenerGenerator() {
-        List<Sender> list = Sender.getSenderList();
-        ContainerPrimary containerPrimary1 = new ContainerPrimary(list.get(0), "Gdansk", 2000, 120);
-        ContainerHeavy containerHeavy1 = new ContainerHeavy(list.get(1), "Hamburg", 10000, 220, 303320);
-        ContainerCooler kontenerCooler1 = new ContainerCooler(list.get(0), "Barcelona", 43232, 2312, 100, 1000);
-        ContainerLiquidMaterials containerLiquidMaterials1 = new ContainerLiquidMaterials(list.get(2), "Karlskrona", 123000, 203, 10000);
-        ContainerExplosiveMaterials containerExplosiveMaterials1 = new ContainerExplosiveMaterials(list.get(3), "Szanghaj", 90000, 500, 200, "XPP");
-        ContainerToxicLooseMaterials kontenerToxicLooseMaterials1 = new ContainerToxicLooseMaterials(list.get(4), "Singapur", 9822, 122, 9999, "93-XAR");
-        ContainerToxicLiquidMaterials kontenerToxicLiquidMaterials1 = new ContainerToxicLiquidMaterials(list.get(4), "Havre", 200000, 1222, 9801, "999-ASX");
-
+        List<Sender> senders = Sender.getSenderList();
+        new ContainerPrimary.Builder()
+                .sender(senders.get(0))
+                .homePort("Gdansk")
+                .weightNetto(2000)
+                .tara(120)
+                .build();
+        new ContainerHeavy.Builder()
+                .sender(senders.get(1))
+                .homePort("Hamburg")
+                .weightNetto(10000)
+                .tara(220)
+                .volume(303320)
+                .build();
+        new ContainerCooler.Builder()
+                .sender(senders.get(0))
+                .homePort("Barcelona")
+                .weightNetto(43232)
+                .tara(2312)
+                .volume(100)
+                .powerOfElectricityInstalation(1000)
+                .build();
+        new ContainerLiquidMaterials.Builder()
+                .sender(senders.get(2))
+                .homePort("Karlskrona")
+                .weightNetto(123000)
+                .tara(203)
+                .maxLitersOfLiquid(10000)
+                .build();
+        new ContainerExplosiveMaterials.Builder()
+                .sender(senders.get(3))
+                .homePort("Szanghaj")
+                .weightNetto(90000)
+                .tara(500)
+                .volume(300)
+                .certificate("XPP")
+                .build();
+        new ContainerToxicLooseMaterials.Builder()
+                .sender(senders.get(4))
+                .homePort("Singapur")
+                .weightNetto(9822)
+                .tara(122)
+                .volume(9999)
+                .certificateOfToxicLoose("93-XAR")
+                .build();
+        new ContainerToxicLiquidMaterials.Builder()
+                .sender(senders.get(4))
+                .homePort("Havre")
+                .weightNetto(200000)
+                .tara(1222)
+                .maxLitersOfLiquid(9801)
+                .cerificateOfToxicLiquidMaterials("999-ASX")
+                .build();
     }
 
 }

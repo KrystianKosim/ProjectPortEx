@@ -13,10 +13,7 @@ public class RailwayWagonThread extends Thread {
         int i = 1;
         while (i <= time) {
             try {
-                /**
-                 * sleep(1000)
-                 */
-                sleep(100);
+                sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

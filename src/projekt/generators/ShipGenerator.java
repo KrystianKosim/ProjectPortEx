@@ -4,10 +4,65 @@ import projekt.model.Ship;
 
 public class ShipGenerator {
     public static void shipGenerator() {
-        Ship ship1 = new Ship("Felicity", "Gdansk", "Algeciras", "Havre", 90, 50, 20, 10, 10, 2952330);
-        Ship ship2 = new Ship("Cabot", "Szanghaj", "Singapur", "Szczecin", 150, 100, 5, 15, 5, 932000);
-        Ship ship3 = new Ship("Investigator", "Hamburg", "Triest", "Karlskrona", 123, 20, 20, 10, 10, 12000000);
-        Ship ship4 = new Ship("Polruan", "Karlskrona", "Hamburg", "Barcelona", 100, 10, 10, 70, 5, 5000000);
-        Ship ship5 = new Ship("Amelia", "Barcelona", "Barcelona", "Szanghaj", 90, 50, 20, 10, 10, 2000000);
+        new Ship.Builder()
+                .name("Felicity")
+                .nameOfHomePort("Gdansk")
+                .transportFrom("Algeciras")
+                .transportTo("Havre")
+                .maximumOfEveryContainers(90)
+                .maximumOfHeavyKonteners(50)
+                .maximumOfCoolerKonteners(20)
+                .maximumOfLiquidMaterialsKonteners(10)
+                .maximumOfToxicKontenres(10)
+                .maximumWeight(2952330)
+                .build();
+        new Ship.Builder()
+                .name("Cabot")
+                .nameOfHomePort("Szanghaj")
+                .transportFrom("Singapur")
+                .transportTo("Szczecin")
+                .maximumWeight(932000)
+                .maximumOfEveryContainers(150)
+                .maximumOfHeavyKonteners(100)
+                .maximumOfCoolerKonteners(5)
+                .maximumOfLiquidMaterialsKonteners(15)
+                .maximumOfToxicKontenres(5)
+                .build();
+        new Ship.Builder()
+                .name("Investigator")
+                .nameOfHomePort("Hamburg")
+                .transportFrom("Triest")
+                .transportTo("Karlskrona")
+                .maximumOfEveryContainers(123)
+                .maximumOfHeavyKonteners(20)
+                .maximumOfCoolerKonteners(20)
+                .maximumOfLiquidMaterialsKonteners(10)
+                .maximumOfToxicKontenres(10)
+                .maximumWeight(12000000)
+                .build();
+        new Ship.Builder()
+                .name("Polruan")
+                .nameOfHomePort("Karlskrona")
+                .transportFrom("Hamburg")
+                .transportTo("Barcelona")
+                .maximumOfEveryContainers(100)
+                .maximumOfHeavyKonteners(10)
+                .maximumOfCoolerKonteners(10)
+                .maximumOfLiquidMaterialsKonteners(70)
+                .maximumOfToxicKontenres(5)
+                .maximumWeight(5000000)
+                .build();
+        new Ship.Builder()
+                .name("Amelia")
+                .nameOfHomePort("Barcelona")
+                .transportFrom("Barcelona")
+                .transportTo("Szanghaj")
+                .maximumOfEveryContainers(90)
+                .maximumOfHeavyKonteners(50)
+                .maximumOfCoolerKonteners(20)
+                .maximumOfLiquidMaterialsKonteners(10)
+                .maximumOfToxicKontenres(10)
+                .maximumWeight(2000000)
+                .build();
     }
 }

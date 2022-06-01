@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ContainerToxicLooseMaterials extends ContainerHeavy {
     private String certificateOfToxicLoose;
 
-    public ContainerToxicLooseMaterials(Sender sender, String homePort, double weightNetto, double tara,
+    protected ContainerToxicLooseMaterials(Sender sender, String homePort, double weightNetto, double tara,
                                         double volume, String certificateOfToxicLoose) {
         super(sender, homePort, weightNetto, tara, volume);
         this.certificateOfToxicLoose = certificateOfToxicLoose;
@@ -28,6 +28,49 @@ public class ContainerToxicLooseMaterials extends ContainerHeavy {
         System.out.println("Podaj certyfikat dla materialow sypkich");
         String certificateOfToxicLooseMaterials = scanK.nextLine();
         return new ContainerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume, certificateOfToxicLooseMaterials);
+    }
+
+    public static class Builder {
+        private Sender sender;
+        private String homePort;
+        private double weightNetto;
+        private double tara;
+        private double volume;
+        private String certificateOfToxicLoose;
+
+        public Builder sender(Sender sender) {
+            this.sender = sender;
+            return this;
+        }
+
+        public Builder homePort(String homePort) {
+            this.homePort = homePort;
+            return this;
+        }
+
+        public Builder weightNetto(double weightNetto) {
+            this.weightNetto = weightNetto;
+            return this;
+        }
+
+        public Builder tara(double tara) {
+            this.tara = tara;
+            return this;
+        }
+
+        public Builder volume(double volume){
+            this.volume = volume;
+            return this;
+        }
+
+        public Builder certificateOfToxicLoose(String certificateOfToxicLoose){
+            this.certificateOfToxicLoose = certificateOfToxicLoose;
+            return this;
+        }
+
+        public ContainerToxicLooseMaterials build() {
+            return new ContainerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume,certificateOfToxicLoose);
+        }
     }
 
     @Override

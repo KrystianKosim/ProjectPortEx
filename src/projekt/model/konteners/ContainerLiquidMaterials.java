@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ContainerLiquidMaterials extends ContainerPrimary {
     private double maxLitersOfLiquid;
 
-    public ContainerLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara, double maxLitersOfLiquid) {
+    protected ContainerLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara, double maxLitersOfLiquid) {
         super(sender, homePort, weightNetto, tara);
         this.maxLitersOfLiquid = maxLitersOfLiquid;
     }
@@ -25,6 +25,43 @@ public class ContainerLiquidMaterials extends ContainerPrimary {
         System.out.println("Maksymalna pojemnosc w litrach");
         double maxLitersOfLiquid = scanK.nextDouble();
         return new ContainerLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
+    }
+
+    public static class Builder {
+        private Sender sender;
+        private String homePort;
+        private double weightNetto;
+        private double tara;
+        private double maxLitersOfLiquid;
+
+        public Builder sender(Sender sender) {
+            this.sender = sender;
+            return this;
+        }
+
+        public Builder homePort(String homePort) {
+            this.homePort = homePort;
+            return this;
+        }
+
+        public Builder weightNetto(double weightNetto) {
+            this.weightNetto = weightNetto;
+            return this;
+        }
+
+        public Builder tara(double tara) {
+            this.tara = tara;
+            return this;
+        }
+
+        public Builder maxLitersOfLiquid(double maxLitersOfLiquid) {
+            this.maxLitersOfLiquid = maxLitersOfLiquid;
+            return this;
+        }
+
+        public ContainerLiquidMaterials build() {
+            return new ContainerLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
+        }
     }
 
     public double getMaxLitersOfLiquid() {
