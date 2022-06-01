@@ -2,6 +2,7 @@ package projekt;
 
 import projekt.generators.*;
 import projekt.model.RailwayWagon;
+import projekt.model.Sender;
 import projekt.model.Ship;
 import projekt.model.Warehouse;
 import projekt.model.konteners.*;
@@ -21,7 +22,6 @@ public class Main {
         KontenersGenerator.kontenerGenerator();
         RailwayWagonGenerator.railwayWagnosGenerator();
         WarehouseGenerator.warehouseGenerator();
-
 
         menu();
 
@@ -45,16 +45,23 @@ public class Main {
                     makeKontener();
                     break;
                 case 3:
-                    Ship.chooseOperationToDo();
+                    Sender.createSender();
                     break;
                 case 4:
-                    Ship.showShipList();
+                    Ship.chooseOperationToDo();
                     break;
                 case 5:
-                    Warehouse.showWarehouses();
+                    Warehouse.chooseWarehouseToRemoveContainer();
                     break;
                 case 6:
+                    Ship.showShipList();
+                    break;
+                case 7:
+                    Warehouse.showWarehouses();
+                    break;
+                case 8:
                     RailwayWagon.showKontenersInWagon();
+                    break;
             }
         } while (decisionVariable != 0);
     }
@@ -65,9 +72,11 @@ public class Main {
         list.add("Wyjdz");
         list.add("Utworz statek");
         list.add("Utworz kontener");
+        list.add("Utworz nadawce");
         list.add("Wykonaj operacje na statku");
+        list.add("Usun kontener z magazynu");
         list.add("Wyswietl liste dostepnych statkow");
-        list.add("wybierz istniejacy magazyn");
+        list.add("Wyswietl liste dostepnych magazynow");
         list.add("Zobacz stan zaladowania wagonu");
         return list;
     }

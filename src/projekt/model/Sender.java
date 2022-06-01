@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Sender {
-    private String name;
-    private String surname;
-    private String pesel;
-    private String address;
-    private LocalDate birthDate;
+    private final String name;
+    private final String surname;
+    private final String pesel;
+    private final String address;
+    private final LocalDate birthDate;
     private int warnings;
-    private static List<Sender> senderList = new ArrayList<>();
+    private static final List<Sender> senderList = new ArrayList<>();
 
     private Sender(String name, String surname, String pesel, String address) {
         this.name = name;
@@ -23,7 +23,6 @@ public class Sender {
         warnings = 0;
         senderList.add(this);
     }
-
 
 
     public LocalDate getAge() {
@@ -111,7 +110,7 @@ public class Sender {
         return senderToReturn;
     }
 
-    private static Sender createSender() {
+    public static Sender createSender() {
         System.out.println("Podaj imie nadawcy");
         String name = new Scanner(System.in).nextLine();
         System.out.println("Podaj nazwisko nadawcy");
@@ -141,34 +140,34 @@ public class Sender {
         }
     }
 
-    public static class Builder{
+    public static class Builder {
         private String name;
         private String surname;
         private String pesel;
         private String address;
 
-        public Builder name(String name){
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder surname(String surname){
+        public Builder surname(String surname) {
             this.surname = surname;
             return this;
         }
 
-        public Builder pesel(String pesel){
+        public Builder pesel(String pesel) {
             this.pesel = pesel;
             return this;
         }
 
-        public Builder address(String address){
+        public Builder address(String address) {
             this.address = address;
             return this;
         }
 
-        public Sender build(){
-            return new Sender(name, surname,pesel,address);
+        public Sender build() {
+            return new Sender(name, surname, pesel, address);
         }
     }
 

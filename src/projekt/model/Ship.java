@@ -1,31 +1,35 @@
 package projekt.model;
 
 import projekt.model.konteners.*;
+import projekt.threads.Timer;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Ship {
-    private String name;
-    private String nameOfHomePort;
-    private String transportFrom;
-    private String transportTo;
-    private int maximumOfEveryContainers;
-    private int maximumOfHeavyKonteners;
-    private int maximumOfCoolerKonteners;
-    private int maximumOfLiquidMaterialsKonteners;
-    private int maximumOfToxicKontenres;
-    private double maximumWeight;
-    private List<ContainerPrimary> listOfContainers;
-    private int shipId;
+    private final String name;
+    private final String nameOfHomePort;
+    private final String transportFrom;
+    private final String transportTo;
+    private final int maximumOfEveryContainers;
+    private final int maximumOfHeavyKonteners;
+    private final int maximumOfCoolerKonteners;
+    private final int maximumOfLiquidMaterialsKonteners;
+    private final int maximumOfToxicKontenres;
+    private final double maximumWeight;
+    private boolean isInPort;
+    private LocalDate timeOfReturnToPort;
+    private final List<ContainerPrimary> listOfContainers;
+    private final int shipId;
     private int id;
-    private static List<Ship> shipList = new ArrayList<>();
+    private static final List<Ship> shipList = new ArrayList<>();
 
     private Ship(String name, String nameOfHomePort, String transportFrom, String transportTo, int maximumOfEveryContainers,
-                int maximumOfHeavyKonteners, int maximumOfCoolerKonteners, int maximumOfLiquidMaterialsKonteners, int maximumOfToxicKontenres,
-                double maximumWeight) {
+                 int maximumOfHeavyKonteners, int maximumOfCoolerKonteners, int maximumOfLiquidMaterialsKonteners, int maximumOfToxicKontenres,
+                 double maximumWeight) {
         this.name = name;
         this.nameOfHomePort = nameOfHomePort;
         this.transportFrom = transportFrom;
@@ -36,12 +40,12 @@ public class Ship {
         this.maximumOfLiquidMaterialsKonteners = maximumOfLiquidMaterialsKonteners;
         this.maximumOfToxicKontenres = maximumOfToxicKontenres;
         this.maximumWeight = maximumWeight;
+        isInPort = true;
         listOfContainers = new ArrayList<>();
         shipId = id;
         id++;
         shipList.add(this);
     }
-
 
 
     public boolean addNewKontener(ContainerPrimary container) {
@@ -85,11 +89,7 @@ public class Ship {
         for (ContainerPrimary elemenet : listOfContainers) {
             weightOfKonteners += elemenet.getWeighBrutto();
         }
-        if (kontener.getWeighBrutto() + weightOfKonteners < maximumWeight) {
-            return true;
-        } else {
-            return false;
-        }
+        return kontener.getWeighBrutto() + weightOfKonteners < maximumWeight;
     }
 
     public static Ship createShip() {
@@ -196,6 +196,10 @@ public class Ship {
         showOperationsToDo();
         Scanner scan = new Scanner(System.in);
         int decisionVariable = scan.nextInt();
+        while (decisionVariable >= 0 && decisionVariable <= 2) {
+            System.err.println("Bledna wartosc, podaj ponownie poprawna wartosc");
+            decisionVariable = scan.nextInt();
+        }
         switch (decisionVariable) {
             case 0:
                 break;
@@ -203,9 +207,22 @@ public class Ship {
                 ship.unloadKontener();
                 break;
             case 2:
-                System.out.println("Statek wyplywa");
+                ship.relaseTheShipOnJourney(ship);
                 break;
         }
+    }
+
+    public void relaseTheShipOnJourney(Ship ship) {
+        System.out.println("Podaj czas podrozy statku");
+        Scanner scan = new Scanner(System.in);
+        int journeyTime = scan.nextInt();
+        while (!(journeyTime > 0)) {
+            System.err.println("Bledna wartosc podrozy, podaj poprawna wartosc");
+            journeyTime = scan.nextInt();
+        }
+        LocalDate dateInProgram = Timer.getDateInProgram();
+        ship.timeOfReturnToPort = dateInProgram.plusDays(journeyTime);
+        ship.isInPort = false;
     }
 
     public static void showOperationsToDo() {
@@ -225,7 +242,7 @@ public class Ship {
             showShipList();
             Scanner scan = new Scanner(System.in);
             int decisionVariable = scan.nextInt();
-            while (!(decisionVariable >= 0 && decisionVariable < shipList.size())) {
+            while (!(decisionVariable >= 0 && decisionVariable < shipList.size() && shipList.get(decisionVariable).isInPort)) {
                 System.err.println("Wybrano niewlasciwy statek, wybierz ponownie z listy:");
                 showShipList();
                 decisionVariable = scan.nextInt();
@@ -238,7 +255,7 @@ public class Ship {
         return shipToReturn;
     }
 
-    public static class Builder{
+    public static class Builder {
         private String name;
         private String nameOfHomePort;
         private String transportFrom;
@@ -250,65 +267,68 @@ public class Ship {
         private int maximumOfToxicKontenres;
         private double maximumWeight;
 
-        public Builder name(String name){
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder nameOfHomePort(String nameOfHomePort){
+        public Builder nameOfHomePort(String nameOfHomePort) {
             this.nameOfHomePort = nameOfHomePort;
             return this;
         }
 
-        public Builder transportFrom(String transportFrom){
+        public Builder transportFrom(String transportFrom) {
             this.transportFrom = transportFrom;
             return this;
         }
 
-        public Builder transportTo(String transportTo){
+        public Builder transportTo(String transportTo) {
             this.transportTo = transportTo;
             return this;
         }
 
-        public Builder maximumOfEveryContainers(int maximumOfEveryContainers){
+        public Builder maximumOfEveryContainers(int maximumOfEveryContainers) {
             this.maximumOfEveryContainers = maximumOfEveryContainers;
             return this;
         }
 
-        public Builder maximumOfHeavyKonteners(int maximumOfHeavyKonteners){
+        public Builder maximumOfHeavyKonteners(int maximumOfHeavyKonteners) {
             this.maximumOfHeavyKonteners = maximumOfHeavyKonteners;
             return this;
         }
 
-        public Builder maximumOfCoolerKonteners(int maximumOfCoolerKonteners){
+        public Builder maximumOfCoolerKonteners(int maximumOfCoolerKonteners) {
             this.maximumOfCoolerKonteners = maximumOfCoolerKonteners;
             return this;
         }
 
-        public Builder maximumOfLiquidMaterialsKonteners(int maximumOfLiquidMaterialsKonteners){
+        public Builder maximumOfLiquidMaterialsKonteners(int maximumOfLiquidMaterialsKonteners) {
             this.maximumOfLiquidMaterialsKonteners = maximumOfLiquidMaterialsKonteners;
             return this;
         }
 
-        public Builder maximumOfToxicKontenres(int maximumOfToxicKontenres){
+        public Builder maximumOfToxicKontenres(int maximumOfToxicKontenres) {
             this.maximumOfToxicKontenres = maximumOfToxicKontenres;
             return this;
         }
 
-        public Builder maximumWeight(double maximumWeight){
+        public Builder maximumWeight(double maximumWeight) {
             this.maximumWeight = maximumWeight;
             return this;
         }
 
-        public Ship build(){
-            return new Ship(name, nameOfHomePort, transportFrom,transportTo,maximumOfEveryContainers, maximumOfHeavyKonteners,
-                    maximumOfCoolerKonteners,maximumOfLiquidMaterialsKonteners,maximumOfToxicKontenres,maximumWeight);
+        public Ship build() {
+            return new Ship(name, nameOfHomePort, transportFrom, transportTo, maximumOfEveryContainers, maximumOfHeavyKonteners,
+                    maximumOfCoolerKonteners, maximumOfLiquidMaterialsKonteners, maximumOfToxicKontenres, maximumWeight);
         }
     }
 
     public static void showShipList() {
         for (int i = 0; i < shipList.size(); i++) {
-            System.out.println(i + " - " + shipList.get(i));
+            if (!shipList.get(i).isInPort) {
+                System.out.print("STATEK JEST POZA PORTEM ");
+            } else
+                System.out.println(i + " - " + shipList.get(i));
         }
     }
 
@@ -389,6 +409,22 @@ public class Ship {
             }
         }
         return count;
+    }
+
+    public static List<Ship> getShipList() {
+        return shipList;
+    }
+
+    public LocalDate getTimeOfReturnToPort() {
+        return timeOfReturnToPort;
+    }
+
+    public void setInPort(boolean inPort) {
+        isInPort = inPort;
+    }
+
+    public void setTimeOfReturnToPort(LocalDate timeOfReturnToPort) {
+        this.timeOfReturnToPort = timeOfReturnToPort;
     }
 
     @Override

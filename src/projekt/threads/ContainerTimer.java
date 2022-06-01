@@ -6,10 +6,10 @@ import projekt.model.konteners.ContainerPrimary;
 import java.time.LocalDate;
 
 public class ContainerTimer {
-    private ContainerPrimary kontener;
-    private Warehouse warehouse;
-    private LocalDate dateOfArrival;
-    private LocalDate deadline;
+    private final ContainerPrimary kontener;
+    private final Warehouse warehouse;
+    private final LocalDate dateOfArrival;
+    private final LocalDate deadline;
 
     public ContainerTimer(ContainerPrimary kontener, int daysInMagazine, Warehouse warehouse) {
         this.kontener = kontener;

@@ -5,10 +5,10 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerExplosiveMaterials extends ContainerHeavy {
-    private String certificate;
+    private final String certificate;
 
     protected ContainerExplosiveMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                       double volume, String cerficate) {
+                                          double volume, String cerficate) {
         super(sender, homePort, weightNetto, tara, volume);
         this.certificate = cerficate;
     }
@@ -58,12 +58,12 @@ public class ContainerExplosiveMaterials extends ContainerHeavy {
             return this;
         }
 
-        public Builder volume(double volume){
+        public Builder volume(double volume) {
             this.volume = volume;
             return this;
         }
 
-        public Builder certificate(String certificate){
+        public Builder certificate(String certificate) {
             this.certificate = certificate;
             return this;
         }

@@ -5,10 +5,10 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerToxicLiquidMaterials extends ContainerLiquidMaterials {
-    private String cerificateOfToxicLiquidMaterials;
+    private final String cerificateOfToxicLiquidMaterials;
 
     protected ContainerToxicLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                         double maxLitersOfLiquid, String cerificateOfToxicLiquidMaterials) {
+                                            double maxLitersOfLiquid, String cerificateOfToxicLiquidMaterials) {
         super(sender, homePort, weightNetto, tara, maxLitersOfLiquid);
         this.cerificateOfToxicLiquidMaterials = cerificateOfToxicLiquidMaterials;
     }
@@ -63,13 +63,13 @@ public class ContainerToxicLiquidMaterials extends ContainerLiquidMaterials {
             return this;
         }
 
-        public Builder cerificateOfToxicLiquidMaterials(String cerificateOfToxicLiquidMaterials){
+        public Builder cerificateOfToxicLiquidMaterials(String cerificateOfToxicLiquidMaterials) {
             this.cerificateOfToxicLiquidMaterials = cerificateOfToxicLiquidMaterials;
             return this;
         }
 
         public ContainerToxicLiquidMaterials build() {
-            return new ContainerToxicLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid,cerificateOfToxicLiquidMaterials);
+            return new ContainerToxicLiquidMaterials(sender, homePort, weightNetto, tara, maxLitersOfLiquid, cerificateOfToxicLiquidMaterials);
         }
     }
 

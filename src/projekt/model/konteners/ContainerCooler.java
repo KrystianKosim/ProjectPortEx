@@ -5,7 +5,7 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerCooler extends ContainerHeavy {
-    private double powerOfElectricityInstalation;
+    private final double powerOfElectricityInstalation;
 
     protected ContainerCooler(Sender sender, String homePort, double weightNetto, double tara, double volume, double powerOfElectricityInstalation) {
         super(sender, homePort, weightNetto, tara, volume);
@@ -57,18 +57,18 @@ public class ContainerCooler extends ContainerHeavy {
             return this;
         }
 
-        public Builder volume(double volume){
+        public Builder volume(double volume) {
             this.volume = volume;
             return this;
         }
 
-        public Builder powerOfElectricityInstalation(double powerOfElectricityInstalation){
+        public Builder powerOfElectricityInstalation(double powerOfElectricityInstalation) {
             this.powerOfElectricityInstalation = powerOfElectricityInstalation;
             return this;
         }
 
         public ContainerCooler build() {
-            return new ContainerCooler(sender, homePort, weightNetto, tara, volume,powerOfElectricityInstalation);
+            return new ContainerCooler(sender, homePort, weightNetto, tara, volume, powerOfElectricityInstalation);
         }
     }
 

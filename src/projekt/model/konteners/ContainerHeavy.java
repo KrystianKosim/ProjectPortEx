@@ -5,7 +5,7 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerHeavy extends ContainerPrimary {
-    private double volume;
+    private final double volume;
 
     protected ContainerHeavy(Sender sender, String homePort, double weightNetto, double tara, double volume) {
         super(sender, homePort, weightNetto, tara);
@@ -54,7 +54,7 @@ public class ContainerHeavy extends ContainerPrimary {
             return this;
         }
 
-        public Builder volume(double volume){
+        public Builder volume(double volume) {
             this.volume = volume;
             return this;
         }

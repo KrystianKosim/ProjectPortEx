@@ -5,10 +5,10 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerToxicLooseMaterials extends ContainerHeavy {
-    private String certificateOfToxicLoose;
+    private final String certificateOfToxicLoose;
 
     protected ContainerToxicLooseMaterials(Sender sender, String homePort, double weightNetto, double tara,
-                                        double volume, String certificateOfToxicLoose) {
+                                           double volume, String certificateOfToxicLoose) {
         super(sender, homePort, weightNetto, tara, volume);
         this.certificateOfToxicLoose = certificateOfToxicLoose;
     }
@@ -58,18 +58,18 @@ public class ContainerToxicLooseMaterials extends ContainerHeavy {
             return this;
         }
 
-        public Builder volume(double volume){
+        public Builder volume(double volume) {
             this.volume = volume;
             return this;
         }
 
-        public Builder certificateOfToxicLoose(String certificateOfToxicLoose){
+        public Builder certificateOfToxicLoose(String certificateOfToxicLoose) {
             this.certificateOfToxicLoose = certificateOfToxicLoose;
             return this;
         }
 
         public ContainerToxicLooseMaterials build() {
-            return new ContainerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume,certificateOfToxicLoose);
+            return new ContainerToxicLooseMaterials(sender, homePort, weightNetto, tara, volume, certificateOfToxicLoose);
         }
     }
 

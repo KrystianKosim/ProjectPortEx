@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Warehouse {
-    private String city;
-    private int maxContainers;
-    private int warehouseId;
+    private final String city;
+    private final int maxContainers;
+    private final int warehouseId;
     private static int warehousesId = 0;
-    private List<ContainerPrimary> listOfContainers;
-    private static List<Warehouse> warehouseList = new ArrayList<>();
+    private final List<ContainerPrimary> listOfContainers;
+    private static final List<Warehouse> warehouseList = new ArrayList<>();
 
 
     private Warehouse(String city, int maxContainers) {
@@ -29,7 +29,35 @@ public class Warehouse {
         warehousesId++;
     }
 
-
+    public static void chooseWarehouseToRemoveContainer() {
+        if (!warehouseList.isEmpty()) {
+            showWarehouses();
+            Scanner scan = new Scanner(System.in);
+            int indexOfWarehouse = scan.nextInt();
+            while (!(indexOfWarehouse >= 0 && indexOfWarehouse < warehouseList.size())) {
+                System.out.println("Bledne numer magazynu, wybierz ponownie:");
+                showWarehouses();
+                indexOfWarehouse = scan.nextInt();
+            }
+            Warehouse warehouse = warehouseList.get(indexOfWarehouse);
+            if (!warehouse.listOfContainers.isEmpty()) {
+                System.out.println("Wybierz ktory kontener chcesz usunac");
+                warehouse.showContainersInWarehouse();
+                int indexOfContainerToRemove = scan.nextInt();
+                while (!(indexOfContainerToRemove >= 0 && indexOfContainerToRemove < warehouse.listOfContainers.size())) {
+                    System.out.println("Bledny numer kontenera, wybierz ponownie");
+                    indexOfContainerToRemove = scan.nextInt();
+                }
+                ContainerPrimary containerToRemove = warehouse.listOfContainers.get(indexOfContainerToRemove);
+                warehouse.listOfContainers.remove(indexOfContainerToRemove);
+                System.out.println("Usunieto " + containerToRemove);
+            } else {
+                System.err.println("Magazyn jest pusty!");
+            }
+        } else {
+            System.err.println("W tej chwili nie ma zadnych magazynow");
+        }
+    }
 
     public static void chooseWarehouseToAddContainer(ContainerPrimary container) {
         showWarehouses();
@@ -73,28 +101,36 @@ public class Warehouse {
         }
     }
 
-    public static class Builder{
+    public static class Builder {
         private String city;
         private int maxContainers;
 
-        public Builder city(String city){
+        public Builder city(String city) {
             this.city = city;
             return this;
         }
 
-        public Builder maxContainers(int maxContainers){
+        public Builder maxContainers(int maxContainers) {
             this.maxContainers = maxContainers;
             return this;
         }
 
-        public Warehouse build(){
-            return new Warehouse(city,maxContainers);
+        public Warehouse build() {
+            return new Warehouse(city, maxContainers);
         }
     }
 
     public static void showWarehouses() {
+        System.out.println("Wybierz magazyn");
         for (int i = 0; i < warehouseList.size(); i++) {
             System.out.println(i + " - " + warehouseList.get(i));
+        }
+    }
+
+    private void showContainersInWarehouse() {
+        System.out.println("Wybierz kontener");
+        for (int i = 0; i < listOfContainers.size(); i++) {
+            System.out.println(i + " - " + listOfContainers.get(i));
         }
     }
 

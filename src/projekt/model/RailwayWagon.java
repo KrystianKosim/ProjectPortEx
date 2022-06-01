@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RailwayWagon {
-    private static List<ContainerPrimary> listOfContainers = new ArrayList<>();
-    private static int maxContainers = 10;
+    private static final List<ContainerPrimary> listOfContainers = new ArrayList<>();
+    private static final int maxContainers = 10;
 
     public static void addContainerToWagon(ContainerPrimary container) {
         if (isFreePlaceOnWagon()) {

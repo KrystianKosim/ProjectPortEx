@@ -13,14 +13,14 @@ public class ContainerPrimary {
     /**
      * name z String zmienione na Sender, zmienic metody tworzenia kontenerow
      */
-    private Sender sender;
-    private String homePort;
-    private double weightNetto;
-    private double tara;
-    private double weighBrutto;
-    private int containerID;
+    private final Sender sender;
+    private final String homePort;
+    private final double weightNetto;
+    private final double tara;
+    private final double weighBrutto;
+    private final int containerID;
     private static int id = 0;
-    private static List<ContainerPrimary> containerPrimaryList = new ArrayList<>();
+    private static final List<ContainerPrimary> containerPrimaryList = new ArrayList<>();
 
     protected ContainerPrimary(Sender sender, String homePort, double weightNetto, double tara) {
         this.sender = sender;

@@ -1,5 +1,7 @@
 package projekt.threads;
 
+import projekt.model.Ship;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,17 +9,30 @@ import java.util.List;
 public class Timer extends Thread {
 
     private static LocalDate dateInProgram = LocalDate.now();
-    private static List<ContainerTimer> activeContainers = new ArrayList<>();
+    private static final List<ContainerTimer> activeContainers = new ArrayList<>();
 
     @Override
     public void run() {
         while (true) {
             try {
-                sleep(10000);
+                sleep(1000);
                 dateInProgram = dateInProgram.plusDays(1);
                 chceckContainers();
+                checkShips();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public static void checkShips() {
+        List<Ship> shipList = Ship.getShipList();
+        for (Ship ship : shipList) {
+            if (ship.getTimeOfReturnToPort() != null) {
+                if (ship.getTimeOfReturnToPort().equals(dateInProgram)) {
+                    ship.setInPort(true);
+                    ship.setTimeOfReturnToPort(null);
+                }
             }
         }
     }

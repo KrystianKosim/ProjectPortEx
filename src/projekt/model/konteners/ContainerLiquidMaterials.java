@@ -5,7 +5,7 @@ import projekt.model.Sender;
 import java.util.Scanner;
 
 public class ContainerLiquidMaterials extends ContainerPrimary {
-    private double maxLitersOfLiquid;
+    private final double maxLitersOfLiquid;
 
     protected ContainerLiquidMaterials(Sender sender, String homePort, double weightNetto, double tara, double maxLitersOfLiquid) {
         super(sender, homePort, weightNetto, tara);
