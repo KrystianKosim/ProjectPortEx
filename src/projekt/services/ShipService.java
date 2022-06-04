@@ -38,7 +38,7 @@ public class ShipService {
             listOfContainers.add(container);
             return true;
         } else {
-            System.out.println("Niemozliwe dodanie nowego kontenera na statek");
+            System.err.println("Niemozliwe dodanie nowego kontenera na statek");
             return false;
         }
     }

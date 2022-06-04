@@ -4,59 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8100ed16-6dd3-4576-9c99-e2409b823103" name="Changes" comment="Add function to relase ship in journey">
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/RailwayWagonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/SenderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/ShipService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/WarehouseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerCoolerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerExplosiveMaterialsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerHeavyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerLiquidMaterialsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerPrimaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerToxicLiquidMaterialsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projekt/services/containersService/ContainerToxicLooseMaterialsService.java" afterDir="false" />
+    <list default="true" id="8100ed16-6dd3-4576-9c99-e2409b823103" name="Changes" comment="Create a services package">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/KontenersGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/KontenersGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_Projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Gui_Projekt_Statki.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/RailwayWagonGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/RailwayWagonGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/SenderGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/SenderGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/ShipGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/ShipGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/WarehouseGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/generators/WarehouseGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/RailwayWagon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/Sender$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/Sender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/Ship$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/Ship.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/Warehouse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerCooler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerExplosiveMaterials.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerHeavy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerLiquidMaterials.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerPrimary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerToxicLiquidMaterials.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/model/konteners/ContainerToxicLooseMaterials.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/threads/ContainerTimer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/threads/ContainerTimer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/threads/Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/threads/Timer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/generators/KontenersGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/generators/KontenersGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/generators/RailwayWagonGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/generators/RailwayWagonGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/generators/SenderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/generators/SenderGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/generators/ShipGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/generators/ShipGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/generators/WarehouseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/generators/WarehouseGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/RailwayWagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/RailwayWagon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/Warehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerCooler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerCooler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerExplosiveMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerExplosiveMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerHeavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerHeavy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerLiquidMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerLiquidMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerPrimary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerPrimary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerToxicLiquidMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerToxicLiquidMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/model/konteners/ContainerToxicLooseMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/models/konteners/ContainerToxicLooseMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/threads/ContainerTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/threads/ContainerTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekt/threads/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/threads/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/RailwayWagon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/RailwayWagon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Sender$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Sender$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Sender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Warehouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/Warehouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerCooler$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerCooler$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerCooler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerCooler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerExplosiveMaterials$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerExplosiveMaterials$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerExplosiveMaterials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerExplosiveMaterials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerHeavy$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerHeavy$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerHeavy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerHeavy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerLiquidMaterials$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerLiquidMaterials$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerLiquidMaterials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerLiquidMaterials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLiquidMaterials$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLiquidMaterials$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLiquidMaterials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLiquidMaterials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLooseMaterials$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLooseMaterials$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLooseMaterials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/models/konteners/ContainerToxicLooseMaterials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/services/containersService/ContainerToxicLiquidMaterialsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Projekt/projekt/services/containersService/ContainerToxicLiquidMaterialsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projekt/services/ShipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projekt/services/ShipService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +117,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -158,7 +130,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testy.Main" />
-      <module name="GUI_Projekt" />
+      <module name="GuiProjektStatki" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="testy.*" />
@@ -171,7 +143,7 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projekt.Main" />
-      <module name="GUI_Projekt" />
+      <module name="GuiProjektStatki" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="projekt.threads.*" />
@@ -184,7 +156,7 @@
     </configuration>
     <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testy.Main2" />
-      <module name="GUI_Projekt" />
+      <module name="GuiProjektStatki" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="testy.*" />
@@ -201,6 +173,19 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="GuiProjektStatki" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="GuiProjektStatki" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -253,7 +238,11 @@
       <workItem from="1653906493142" duration="1095000" />
       <workItem from="1653907612488" duration="5907000" />
       <workItem from="1654092671904" duration="7407000" />
-      <workItem from="1654102877126" duration="3361000" />
+      <workItem from="1654102877126" duration="3455000" />
+      <workItem from="1654106426540" duration="58000" />
+      <workItem from="1654169870848" duration="88000" />
+      <workItem from="1654337885055" duration="477000" />
+      <workItem from="1654338484400" duration="35000" />
     </task>
     <task id="LOCAL-00001" summary="Shortening code, add generators">
       <created>1651063804800</created>
@@ -339,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654100126673</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Create a services package">
+      <created>1654106319313</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654106319313</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +360,7 @@
     <MESSAGE value="Add multiThreads" />
     <MESSAGE value="Added a builders to classes and generators" />
     <MESSAGE value="Add function to relase ship in journey" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add function to relase ship in journey" />
+    <MESSAGE value="Create a services package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create a services package" />
   </component>
 </project>
