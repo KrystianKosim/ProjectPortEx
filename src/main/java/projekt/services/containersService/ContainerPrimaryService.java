@@ -1,11 +1,11 @@
-package main.java.projekt.services.containersService;
+package projekt.services.containersService;
 
-import main.java.projekt.models.Sender;
-import main.java.projekt.models.konteners.*;
-import main.java.projekt.services.RailwayWagonService;
-import main.java.projekt.services.SenderService;
-import main.java.projekt.services.ShipService;
-import main.java.projekt.services.WarehouseService;
+import projekt.models.Sender;
+import projekt.models.konteners.*;
+import projekt.services.RailwayWagonService;
+import projekt.services.SenderService;
+import projekt.services.ShipService;
+import projekt.services.WarehouseService;
 
 import java.util.ArrayList;
 import java.util.List;

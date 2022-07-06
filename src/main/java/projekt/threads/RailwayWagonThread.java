@@ -1,4 +1,4 @@
-package main.java.projekt.threads;
+package projekt.threads;
 
 public class RailwayWagonThread extends Thread {
 

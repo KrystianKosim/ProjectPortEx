@@ -1,7 +1,7 @@
-package main.java.projekt.generators;
+package projekt.generators;
 
-import main.java.projekt.models.konteners.ContainerPrimary;
-import main.java.projekt.services.RailwayWagonService;
+import projekt.models.konteners.ContainerPrimary;
+import projekt.services.RailwayWagonService;
 
 import java.util.List;
 

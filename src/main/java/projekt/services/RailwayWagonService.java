@@ -1,9 +1,9 @@
-package main.java.projekt.services;
+package projekt.services;
 
-import main.java.projekt.Main;
-import main.java.projekt.models.RailwayWagon;
-import main.java.projekt.models.konteners.ContainerPrimary;
-import main.java.projekt.threads.RailwayWagonThread;
+import projekt.Main;
+import projekt.models.RailwayWagon;
+import projekt.models.konteners.ContainerPrimary;
+import projekt.threads.RailwayWagonThread;
 
 import java.util.List;
 

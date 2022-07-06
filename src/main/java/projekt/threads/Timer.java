@@ -1,6 +1,6 @@
-package main.java.projekt.threads;
+package projekt.threads;
 
-import main.java.projekt.models.Ship;
+import projekt.models.Ship;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

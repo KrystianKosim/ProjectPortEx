@@ -1,12 +1,12 @@
-package main.java.projekt.services;
+package projekt.services;
 
-import main.java.projekt.models.Warehouse;
-import main.java.projekt.models.konteners.ContainerExplosiveMaterials;
-import main.java.projekt.models.konteners.ContainerPrimary;
-import main.java.projekt.models.konteners.ContainerToxicLiquidMaterials;
-import main.java.projekt.models.konteners.ContainerToxicLooseMaterials;
-import main.java.projekt.threads.ContainerTimer;
-import main.java.projekt.threads.Timer;
+import projekt.models.Warehouse;
+import projekt.models.konteners.ContainerExplosiveMaterials;
+import projekt.models.konteners.ContainerPrimary;
+import projekt.models.konteners.ContainerToxicLiquidMaterials;
+import projekt.models.konteners.ContainerToxicLooseMaterials;
+import projekt.threads.ContainerTimer;
+import projekt.threads.Timer;
 
 import java.util.List;
 import java.util.Scanner;

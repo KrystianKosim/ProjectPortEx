@@ -1,6 +1,6 @@
-package main.java.projekt.models;
+package projekt.models;
 
-import main.java.projekt.models.konteners.ContainerPrimary;
+import projekt.models.konteners.ContainerPrimary;
 
 import java.util.ArrayList;
 import java.util.List;

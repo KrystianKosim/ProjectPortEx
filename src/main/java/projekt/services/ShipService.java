@@ -1,8 +1,8 @@
-package main.java.projekt.services;
+package projekt.services;
 
-import main.java.projekt.models.Ship;
-import main.java.projekt.models.konteners.*;
-import main.java.projekt.threads.Timer;
+import projekt.models.Ship;
+import projekt.models.konteners.*;
+import projekt.threads.Timer;
 
 import java.time.LocalDate;
 import java.util.LinkedList;

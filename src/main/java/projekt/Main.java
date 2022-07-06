@@ -1,12 +1,12 @@
-package main.java.projekt;
+package projekt;
 
-import main.java.projekt.generators.*;
-import main.java.projekt.services.RailwayWagonService;
-import main.java.projekt.services.SenderService;
-import main.java.projekt.services.ShipService;
-import main.java.projekt.services.WarehouseService;
-import main.java.projekt.services.containersService.ContainerPrimaryService;
-import main.java.projekt.threads.Timer;
+import projekt.generators.*;
+import projekt.services.RailwayWagonService;
+import projekt.services.SenderService;
+import projekt.services.ShipService;
+import projekt.services.WarehouseService;
+import projekt.services.containersService.ContainerPrimaryService;
+import projekt.threads.Timer;
 
 import java.util.ArrayList;
 import java.util.List;

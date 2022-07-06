@@ -1,6 +1,6 @@
-package main.java.projekt.models.konteners;
+package projekt.models.konteners;
 
-import main.java.projekt.models.Sender;
+import projekt.models.Sender;
 
 import java.util.ArrayList;
 import java.util.List;

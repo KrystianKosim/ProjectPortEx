@@ -1,6 +1,6 @@
-package main.java.projekt.models;
+package projekt.models;
 
-import main.java.projekt.services.SenderService;
+import projekt.services.SenderService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

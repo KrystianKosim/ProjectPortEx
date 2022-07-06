@@ -1,6 +1,6 @@
-package main.java.projekt.generators;
+package projekt.generators;
 
-import main.java.projekt.models.Ship;
+import projekt.models.Ship;
 
 public class ShipGenerator {
     public static void shipGenerator() {

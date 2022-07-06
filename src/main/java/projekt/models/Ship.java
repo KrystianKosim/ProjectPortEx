@@ -1,7 +1,7 @@
-package main.java.projekt.models;
+package projekt.models;
 
-import main.java.projekt.models.konteners.ContainerPrimary;
-import main.java.projekt.services.ShipService;
+import projekt.models.konteners.ContainerPrimary;
+import projekt.services.ShipService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

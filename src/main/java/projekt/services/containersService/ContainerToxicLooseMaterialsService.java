@@ -1,8 +1,8 @@
-package main.java.projekt.services.containersService;
+package projekt.services.containersService;
 
-import main.java.projekt.models.Sender;
-import main.java.projekt.models.konteners.ContainerToxicLooseMaterials;
-import main.java.projekt.services.SenderService;
+import projekt.models.Sender;
+import projekt.models.konteners.ContainerToxicLooseMaterials;
+import projekt.services.SenderService;
 
 import java.util.Scanner;
 
