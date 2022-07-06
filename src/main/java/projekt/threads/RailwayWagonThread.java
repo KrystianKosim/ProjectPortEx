@@ -2,7 +2,7 @@ package projekt.threads;
 
 public class RailwayWagonThread extends Thread {
 
-    int time;
+    private int time;
 
     public RailwayWagonThread(int time) {
         this.time = time;
